@@ -80,16 +80,6 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
     };
   }, [isPlaying, shuffledPhotos.length]);
 
-  // Auto-upload when both file and password are provided
-  useEffect(() => {
-    if (selectedFile && password && activeTab === 'upload' && !uploadMutation.isPending) {
-      const formData = new FormData();
-      formData.append('photo', selectedFile);
-      formData.append('password', password);
-      uploadMutation.mutate(formData);
-    }
-  }, [selectedFile, password, activeTab]);
-
   const uploadMutation = useMutation({
     mutationFn: async (formData: FormData) => {
       const response = await fetch('/api/photos/upload', {
@@ -360,7 +350,13 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
                   />
                 </div>
                 
-
+                <Button
+                  onClick={handleUpload}
+                  disabled={!selectedFile || !password || uploadMutation.isPending}
+                  className="w-full"
+                >
+                  {uploadMutation.isPending ? "Caricamento..." : "Carica"}
+                </Button>
               </div>
             )}
 
