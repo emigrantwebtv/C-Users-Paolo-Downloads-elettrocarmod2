@@ -26,7 +26,7 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
   const [password, setPassword] = useState("");
   const [deletePassword, setDeletePassword] = useState("");
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [activeTab, setActiveTab] = useState<'upload' | 'manage'>('manage');
+  const [activeTab, setActiveTab] = useState<'upload' | 'manage'>('upload');
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
@@ -290,7 +290,7 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
                 size="icon"
                 onClick={() => {
                   setShowUpload(false);
-                  setActiveTab('manage');
+                  setActiveTab('upload');
                   setPassword("");
                   setDeletePassword("");
                   setSelectedFile(null);
@@ -302,6 +302,15 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
             
             {/* Tab navigation */}
             <div className="flex space-x-1 mb-4">
+              <Button
+                variant={activeTab === 'upload' ? 'default' : 'ghost'}
+                size="sm"
+                onClick={() => setActiveTab('upload')}
+                className="flex-1"
+              >
+                <Upload className="h-4 w-4 mr-2" />
+                Aggiungi
+              </Button>
               <Button
                 variant={activeTab === 'manage' ? 'default' : 'ghost'}
                 size="sm"
