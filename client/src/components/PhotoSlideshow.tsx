@@ -367,10 +367,11 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
                 </div>
                 
                 <div className="space-y-2 max-h-32 overflow-y-auto border border-gray-200 rounded p-2">
-                  <h4 className="text-sm font-medium">Foto caricate:</h4>
+                  <h4 className="text-sm font-medium">Foto caricate da utenti:</h4>
                   {photos.length === 0 ? (
                     <p className="text-sm text-gray-500 text-center py-4">
-                      Nessuna foto caricata
+                      Nessuna foto caricata tramite upload.<br/>
+                      Le foto della gallery predefinite non possono essere eliminate.
                     </p>
                   ) : (
                     photos.map((photo) => (
