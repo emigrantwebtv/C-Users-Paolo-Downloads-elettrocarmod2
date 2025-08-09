@@ -366,7 +366,7 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
                   />
                 </div>
                 
-                <div className="space-y-2 max-h-48 overflow-y-auto border border-gray-200 rounded p-2">
+                <div className="space-y-2 max-h-32 overflow-y-auto border border-gray-200 rounded p-2">
                   <h4 className="text-sm font-medium">Foto caricate:</h4>
                   {photos.length === 0 ? (
                     <p className="text-sm text-gray-500 text-center py-4">
