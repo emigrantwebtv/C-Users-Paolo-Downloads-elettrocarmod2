@@ -303,15 +303,6 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
             {/* Tab navigation */}
             <div className="flex space-x-1 mb-4">
               <Button
-                variant={activeTab === 'upload' ? 'default' : 'ghost'}
-                size="sm"
-                onClick={() => setActiveTab('upload')}
-                className="flex-1"
-              >
-                <Upload className="h-4 w-4 mr-2" />
-                Aggiungi
-              </Button>
-              <Button
                 variant={activeTab === 'manage' ? 'default' : 'ghost'}
                 size="sm"
                 onClick={() => setActiveTab('manage')}
