@@ -282,7 +282,7 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
       {/* Upload/Management modal */}
       {showUpload && (
         <div className="absolute inset-0 bg-black/80 flex items-center justify-center p-4 z-10">
-          <div className="bg-white rounded-lg p-6 w-full max-w-lg max-h-[80vh] overflow-y-auto">
+          <div className="bg-white rounded-lg p-6 w-full max-w-lg max-h-[70vh] overflow-y-auto">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-semibold">Gestisci Foto</h3>
               <Button
@@ -366,7 +366,7 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
                   />
                 </div>
                 
-                <div className="space-y-2 max-h-60 overflow-y-auto">
+                <div className="space-y-2 max-h-48 overflow-y-auto border border-gray-200 rounded p-2">
                   <h4 className="text-sm font-medium">Foto caricate:</h4>
                   {photos.length === 0 ? (
                     <p className="text-sm text-gray-500 text-center py-4">
