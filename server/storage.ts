@@ -1,4 +1,6 @@
 import { users, photos, type User, type InsertUser, type Photo, type InsertPhoto } from "@shared/schema";
+import { db } from "./db";
+import { eq } from "drizzle-orm";
 
 // modify the interface with any CRUD methods
 // you might need
@@ -10,6 +12,43 @@ export interface IStorage {
   getAllPhotos(): Promise<Photo[]>;
   createPhoto(photo: InsertPhoto): Promise<Photo>;
   deletePhoto(id: number): Promise<boolean>;
+}
+
+export class DatabaseStorage implements IStorage {
+  async getUser(id: number): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user || undefined;
+  }
+
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user || undefined;
+  }
+
+  async createUser(insertUser: InsertUser): Promise<User> {
+    const [user] = await db
+      .insert(users)
+      .values(insertUser)
+      .returning();
+    return user;
+  }
+
+  async getAllPhotos(): Promise<Photo[]> {
+    return await db.select().from(photos);
+  }
+
+  async createPhoto(insertPhoto: InsertPhoto): Promise<Photo> {
+    const [photo] = await db
+      .insert(photos)
+      .values(insertPhoto)
+      .returning();
+    return photo;
+  }
+
+  async deletePhoto(id: number): Promise<boolean> {
+    const result = await db.delete(photos).where(eq(photos.id, id));
+    return result.rowCount !== null && result.rowCount > 0;
+  }
 }
 
 export class MemStorage implements IStorage {
@@ -58,4 +97,4 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();
