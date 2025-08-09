@@ -1,0 +1,133 @@
+import type { Express } from "express";
+import express from "express";
+import { createServer, type Server } from "http";
+import { storage } from "./storage";
+import { insertPhotoSchema } from "@shared/schema";
+import multer from "multer";
+import path from "path";
+import fs from "fs";
+
+// Configure multer for file uploads
+const uploadDir = path.join(process.cwd(), 'uploads');
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir, { recursive: true });
+}
+
+const upload = multer({
+  storage: multer.diskStorage({
+    destination: uploadDir,
+    filename: (req, file, cb) => {
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+      cb(null, uniqueSuffix + path.extname(file.originalname));
+    }
+  }),
+  fileFilter: (req, file, cb) => {
+    const allowedTypes = /jpeg|jpg|png|gif|webp/;
+    const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
+    const mimetype = allowedTypes.test(file.mimetype);
+    
+    if (mimetype && extname) {
+      return cb(null, true);
+    } else {
+      cb(new Error('Solo immagini sono consentite!'));
+    }
+  },
+  limits: { fileSize: 5 * 1024 * 1024 } // 5MB limit
+});
+
+export async function registerRoutes(app: Express): Promise<Server> {
+  // Serve uploaded files statically
+  app.use('/uploads', express.static(uploadDir));
+  
+  // Serve attached assets statically
+  const attachedAssetsDir = path.join(process.cwd(), 'attached_assets');
+  app.use('/attached_assets', express.static(attachedAssetsDir));
+
+  // Get all photos
+  app.get("/api/photos", async (req, res) => {
+    try {
+      const photos = await storage.getAllPhotos();
+      res.json(photos);
+    } catch (error) {
+      res.status(500).json({ error: "Errore nel recuperare le foto" });
+    }
+  });
+
+  // Upload photo with password protection
+  app.post("/api/photos/upload", upload.single('photo'), async (req, res) => {
+    try {
+      const password = req.body.password;
+      if (password !== "segreta") {
+        return res.status(401).json({ error: "Password non corretta" });
+      }
+
+      if (!req.file) {
+        return res.status(400).json({ error: "Nessun file caricato" });
+      }
+
+      const photoData = {
+        filename: req.file.filename,
+        originalName: req.file.originalname,
+        uploadedAt: new Date().toISOString(),
+      };
+
+      const result = insertPhotoSchema.safeParse(photoData);
+      if (!result.success) {
+        return res.status(400).json({ error: "Dati non validi" });
+      }
+
+      const photo = await storage.createPhoto(result.data);
+      res.json(photo);
+    } catch (error) {
+      res.status(500).json({ error: "Errore nel caricare la foto" });
+    }
+  });
+
+  // Delete photo with password protection
+  app.delete("/api/photos/:id", async (req, res) => {
+    try {
+      const password = req.body.password;
+      if (password !== "segreta") {
+        return res.status(401).json({ error: "Password non corretta" });
+      }
+
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) {
+        return res.status(400).json({ error: "ID foto non valido" });
+      }
+
+      // Get photo info before deleting to remove file
+      const photos = await storage.getAllPhotos();
+      const photo = photos.find(p => p.id === id);
+      
+      if (!photo) {
+        return res.status(404).json({ error: "Foto non trovata" });
+      }
+
+      // Delete from storage
+      const deleted = await storage.deletePhoto(id);
+      
+      if (deleted) {
+        // Try to delete physical file
+        try {
+          const filePath = path.join(uploadDir, photo.filename);
+          if (fs.existsSync(filePath)) {
+            fs.unlinkSync(filePath);
+          }
+        } catch (fileError) {
+          console.error("Errore eliminazione file:", fileError);
+          // Continue even if file deletion fails
+        }
+        
+        res.json({ message: "Foto eliminata con successo" });
+      } else {
+        res.status(404).json({ error: "Foto non trovata" });
+      }
+    } catch (error) {
+      res.status(500).json({ error: "Errore nell'eliminare la foto" });
+    }
+  });
+
+  const httpServer = createServer(app);
+  return httpServer;
+}
