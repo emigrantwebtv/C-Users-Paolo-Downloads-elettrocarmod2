@@ -92,6 +92,7 @@ The application is configured for production deployment with:
 - Added and updated promotional video for BAR page with latest authentic business content
 - Added new promotional video for CONTATTI page showing key duplication services
 - Disabled video looping on all page videos per user request
+- Enhanced Gallery page with full PhotoSlideshow component for complete video and photo management
 - Completely redesigned "Dove Siamo" page with integrated Google Maps
 - Added real business location: Zona Industriale 1, Colle Sannita (BN)
 - Implemented interactive map with embedded Google Maps iframe

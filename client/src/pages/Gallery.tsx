@@ -23,14 +23,10 @@ export default function Gallery() {
               Sfoglia la nostra gallery per vedere i risultati dei nostri servizi. Dalle trasformazioni più spettacolari alle manutenzioni di routine, ogni immagine racconta la storia della qualità e dell'attenzione ai dettagli che ci contraddistingue.
             </p>
             
-            {/* Video section */}
-            <div className="bg-gray-100 rounded-lg p-8 text-center border-2 border-dashed border-gray-300">
-              <div className="h-16 w-16 text-primary mb-4 mx-auto">
-                <svg className="w-full h-full" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z"/>
-                </svg>
-              </div>
-              <p className="text-secondary">Video Gallery Completa</p>
+            {/* Video Gallery - Full PhotoSlideshow for managing videos */}
+            <div className="mt-6">
+              <h3 className="text-xl font-semibold text-primary mb-4">Gestione Video e Foto</h3>
+              <PhotoSlideshow className="w-full" />
             </div>
           </div>
         </div>

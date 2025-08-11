@@ -52,7 +52,7 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
   ], [photos]);
 
   // Shuffle photos randomly
-  const [shuffledPhotos, setShuffledPhotos] = useState(allPhotos);
+  const [shuffledPhotos, setShuffledPhotos] = useState<typeof allPhotos>([]);
 
   useEffect(() => {
     const shuffled = [...allPhotos].sort(() => Math.random() - 0.5);
