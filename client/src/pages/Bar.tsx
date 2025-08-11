@@ -1,6 +1,6 @@
 import ContentPage from "@/components/ContentPage";
 import barPhoto from "@assets/foto bar_1754488464141.jpg";
-import barVideo from "@assets/video bar_1754927466521.mp4";
+import barVideo from "@assets/video bar_1754929522104.mp4";
 
 export default function Bar() {
   return (

@@ -89,7 +89,7 @@ The application is configured for production deployment with:
 - Set up PostgreSQL database with proper credentials and schema migrations
 - Fixed React infinite re-render error in PhotoSlideshow component using useMemo and correct dependencies
 - Updated homepage subtitle to "Officina, Autolavaggio, e-bikes" per user request
-- Added new promotional video for BAR page with authentic business content
+- Added and updated promotional video for BAR page with latest authentic business content
 - Added new promotional video for CONTATTI page showing key duplication services
 - Disabled video looping on all page videos per user request
 - Completely redesigned "Dove Siamo" page with integrated Google Maps
