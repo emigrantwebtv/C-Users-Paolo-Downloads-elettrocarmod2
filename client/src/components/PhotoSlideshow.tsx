@@ -58,7 +58,7 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
     const shuffled = [...allPhotos].sort(() => Math.random() - 0.5);
     setShuffledPhotos(shuffled);
     setCurrentIndex(0);
-  }, [photos]);
+  }, [allPhotos]);
 
   // Auto-play functionality
   useEffect(() => {
