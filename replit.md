@@ -86,6 +86,9 @@ The application is configured for production deployment with:
 
 ### Latest Updates (January 2025)
 - Successfully migrated project from Replit Agent to Replit environment
+- Set up PostgreSQL database with proper credentials and schema migrations
+- Fixed React infinite re-render error in PhotoSlideshow component using useMemo
+- Updated homepage subtitle to "Officina, Autolavaggio, e-bikes" per user request
 - Completely redesigned "Dove Siamo" page with integrated Google Maps
 - Added real business location: Zona Industriale 1, Colle Sannita (BN)
 - Implemented interactive map with embedded Google Maps iframe

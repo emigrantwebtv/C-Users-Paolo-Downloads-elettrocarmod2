@@ -20,7 +20,7 @@ export default function HomePage() {
       <header className="bg-primary text-white shadow-xl">
         <div className="container mx-auto px-4 py-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold tracking-wide">ELETTROCAR</h1>
-          <p className="text-blue-200 mt-2 text-lg">Officina, autolavaggio, codifica chiavi, e-bikes</p>
+          <p className="text-blue-200 mt-2 text-lg">Officina, Autolavaggio, e-bikes</p>
         </div>
       </header>
 

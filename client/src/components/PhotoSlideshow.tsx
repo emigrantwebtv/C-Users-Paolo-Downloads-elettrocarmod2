@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { ChevronLeft, ChevronRight, Play, Pause, Upload, X, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -37,8 +37,8 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
     queryKey: ["/api/photos"],
   });
 
-  // Create combined photo list with URLs
-  const allPhotos = [
+  // Create combined photo list with URLs using useMemo to prevent infinite re-renders
+  const allPhotos = useMemo(() => [
     ...defaultPhotos.map((url, index) => ({ 
       id: `default-${index}`, 
       url, 
@@ -49,7 +49,7 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
       url: `/uploads/${photo.filename}`, 
       isDefault: false 
     }))
-  ];
+  ], [photos]);
 
   // Shuffle photos randomly
   const [shuffledPhotos, setShuffledPhotos] = useState(allPhotos);
