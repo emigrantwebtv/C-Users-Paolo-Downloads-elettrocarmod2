@@ -110,7 +110,6 @@ export default function ContentPage({
                   className="w-full h-96 object-cover rounded-lg"
                   controls
                   autoPlay
-                  loop
                   playsInline
                 >
                   <source src={videoUrl} type="video/mp4" />
