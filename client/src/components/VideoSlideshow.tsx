@@ -3,6 +3,15 @@ import { ChevronLeft, ChevronRight, Play, Pause, Upload, X, Trash2 } from "lucid
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { apiRequest } from "@/lib/queryClient";
+
+interface Video {
+  id: number;
+  filename: string;
+  originalName: string;
+  uploadedAt: string;
+}
 
 interface VideoSlideshowProps {
   className?: string;
@@ -20,9 +29,12 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
+  const queryClient = useQueryClient();
 
-  // Empty video list for now - can be populated later
-  const videos: any[] = [];
+  // Fetch videos from API
+  const { data: videos = [], isLoading } = useQuery<Video[]>({
+    queryKey: ["/api/videos"],
+  });
 
   const nextSlide = () => {
     if (videos.length > 0) {
@@ -56,6 +68,41 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
     }
   };
 
+  const uploadMutation = useMutation({
+    mutationFn: async (formData: FormData) => {
+      const response = await fetch('/api/videos/upload', {
+        method: 'POST',
+        body: formData,
+      });
+      
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || 'Errore durante upload');
+      }
+      
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/videos"] });
+      toast({
+        title: "Successo",
+        description: "Video caricato con successo!",
+      });
+      setSelectedFile(null);
+      setPassword("");
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Errore",
+        description: error.message,
+        variant: "destructive",
+      });
+    },
+  });
+
   const handleUpload = async () => {
     if (!selectedFile || !password) {
       toast({
@@ -66,21 +113,46 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
       return;
     }
 
-    if (password !== "segreta") {
+    const formData = new FormData();
+    formData.append('video', selectedFile);
+    formData.append('password', password);
+
+    uploadMutation.mutate(formData);
+  };
+
+  const deleteMutation = useMutation({
+    mutationFn: async ({ id, password }: { id: number; password: string }) => {
+      const response = await fetch(`/api/videos/${id}`, {
+        method: 'DELETE',
+        body: JSON.stringify({ password }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || 'Errore durante eliminazione');
+      }
+      
+      return response.json();
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["/api/videos"] });
       toast({
-        title: "Errore",
-        description: "Password errata",
+        title: "Successo",
+        description: "Video eliminato con successo!",
+      });
+      setDeletePassword("");
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Errore", 
+        description: error.message,
         variant: "destructive",
       });
-      return;
-    }
-
-    // Here you would implement video upload logic
-    toast({
-      title: "Info",
-      description: "Funzionalità upload video in sviluppo",
-    });
-  };
+    },
+  });
 
   const handleDelete = async (videoId: number) => {
     if (!deletePassword) {
@@ -92,20 +164,7 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
       return;
     }
 
-    if (deletePassword !== "segreta") {
-      toast({
-        title: "Errore",
-        description: "Password errata",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    // Here you would implement video deletion logic
-    toast({
-      title: "Info",
-      description: "Funzionalità eliminazione video in sviluppo",
-    });
+    deleteMutation.mutate({ id: videoId, password: deletePassword });
   };
 
   return (
@@ -120,9 +179,16 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
             </div>
           </div>
         ) : (
-          <div className="aspect-video bg-black flex items-center justify-center">
-            {/* Video player would go here */}
-            <Play className="h-16 w-16 text-white" />
+          <div className="aspect-video bg-black flex items-center justify-center relative">
+            <video
+              key={videos[currentIndex]?.filename}
+              className="w-full h-full object-contain"
+              controls
+              playsInline
+            >
+              <source src={`/uploads/${videos[currentIndex]?.filename}`} type="video/mp4" />
+              Il tuo browser non supporta il tag video.
+            </video>
           </div>
         )}
         
@@ -251,10 +317,10 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
               
               <Button
                 onClick={handleUpload}
-                disabled={!selectedFile || !password}
+                disabled={!selectedFile || !password || uploadMutation.isPending}
                 className="w-full"
               >
-                Carica Video
+                {uploadMutation.isPending ? "Caricamento..." : "Carica Video"}
               </Button>
             </div>
           )}
@@ -264,13 +330,13 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
             <div className="space-y-4">
               <div className="max-h-40 overflow-y-auto space-y-2">
                 {videos.map((video, index) => (
-                  <div key={video.id || index} className="flex items-center justify-between p-2 bg-gray-50 rounded">
-                    <span className="text-sm">{video.name || `Video ${index + 1}`}</span>
+                  <div key={video.id} className="flex items-center justify-between p-2 bg-gray-50 rounded">
+                    <span className="text-sm">{video.originalName || `Video ${index + 1}`}</span>
                     <Button
                       variant="destructive"
                       size="sm"
                       onClick={() => handleDelete(video.id)}
-                      disabled={!deletePassword}
+                      disabled={!deletePassword || deleteMutation.isPending}
                     >
                       <Trash2 className="h-4 w-4" />
                     </Button>

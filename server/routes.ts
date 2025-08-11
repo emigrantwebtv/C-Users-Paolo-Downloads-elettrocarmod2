@@ -2,7 +2,7 @@ import type { Express } from "express";
 import express from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertPhotoSchema } from "@shared/schema";
+import { insertPhotoSchema, insertVideoSchema } from "@shared/schema";
 import multer from "multer";
 import path from "path";
 import fs from "fs";
@@ -33,6 +33,28 @@ const upload = multer({
     }
   },
   limits: { fileSize: 5 * 1024 * 1024 } // 5MB limit
+});
+
+const uploadVideo = multer({
+  storage: multer.diskStorage({
+    destination: uploadDir,
+    filename: (req, file, cb) => {
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+      cb(null, uniqueSuffix + path.extname(file.originalname));
+    }
+  }),
+  fileFilter: (req, file, cb) => {
+    const allowedTypes = /mp4|mov|avi|wmv|flv|webm|mkv/;
+    const extname = allowedTypes.test(path.extname(file.originalname).toLowerCase());
+    const mimetype = allowedTypes.test(file.mimetype);
+    
+    if (mimetype && extname) {
+      return cb(null, true);
+    } else {
+      cb(new Error('Solo video sono consentiti!'));
+    }
+  },
+  limits: { fileSize: 100 * 1024 * 1024 } // 100MB limit for videos
 });
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -125,6 +147,91 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
     } catch (error) {
       res.status(500).json({ error: "Errore nell'eliminare la foto" });
+    }
+  });
+
+  // Get all videos
+  app.get("/api/videos", async (req, res) => {
+    try {
+      const videos = await storage.getAllVideos();
+      res.json(videos);
+    } catch (error) {
+      res.status(500).json({ error: "Errore nel recuperare i video" });
+    }
+  });
+
+  // Upload video with password protection
+  app.post("/api/videos/upload", uploadVideo.single('video'), async (req, res) => {
+    try {
+      const password = req.body.password;
+      if (password !== "segreta") {
+        return res.status(401).json({ error: "Password non corretta" });
+      }
+
+      if (!req.file) {
+        return res.status(400).json({ error: "Nessun file caricato" });
+      }
+
+      const videoData = {
+        filename: req.file.filename,
+        originalName: req.file.originalname,
+        uploadedAt: new Date().toISOString(),
+      };
+
+      const result = insertVideoSchema.safeParse(videoData);
+      if (!result.success) {
+        return res.status(400).json({ error: "Dati non validi" });
+      }
+
+      const video = await storage.createVideo(result.data);
+      res.json(video);
+    } catch (error) {
+      res.status(500).json({ error: "Errore nel caricare il video" });
+    }
+  });
+
+  // Delete video with password protection
+  app.delete("/api/videos/:id", async (req, res) => {
+    try {
+      const password = req.body.password;
+      if (password !== "segreta") {
+        return res.status(401).json({ error: "Password non corretta" });
+      }
+
+      const id = parseInt(req.params.id);
+      if (isNaN(id)) {
+        return res.status(400).json({ error: "ID video non valido" });
+      }
+
+      // Get video info before deleting to remove file
+      const videos = await storage.getAllVideos();
+      const video = videos.find((v: any) => v.id === id);
+      
+      if (!video) {
+        return res.status(404).json({ error: "Video non trovato" });
+      }
+
+      // Delete from storage
+      const deleted = await storage.deleteVideo(id);
+      
+      if (deleted) {
+        // Try to delete physical file
+        try {
+          const filePath = path.join(uploadDir, video.filename);
+          if (fs.existsSync(filePath)) {
+            fs.unlinkSync(filePath);
+          }
+        } catch (fileError) {
+          console.error("Errore eliminazione file:", fileError);
+          // Continue even if file deletion fails
+        }
+        
+        res.json({ message: "Video eliminato con successo" });
+      } else {
+        res.status(404).json({ error: "Video non trovato" });
+      }
+    } catch (error) {
+      res.status(500).json({ error: "Errore nell'eliminare il video" });
     }
   });
 

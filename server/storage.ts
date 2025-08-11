@@ -1,4 +1,4 @@
-import { users, photos, type User, type InsertUser, type Photo, type InsertPhoto } from "@shared/schema";
+import { users, photos, videos, type User, type InsertUser, type Photo, type InsertPhoto, type Video, type InsertVideo } from "@shared/schema";
 import { db } from "./db";
 import { eq } from "drizzle-orm";
 
@@ -12,6 +12,9 @@ export interface IStorage {
   getAllPhotos(): Promise<Photo[]>;
   createPhoto(photo: InsertPhoto): Promise<Photo>;
   deletePhoto(id: number): Promise<boolean>;
+  getAllVideos(): Promise<Video[]>;
+  createVideo(video: InsertVideo): Promise<Video>;
+  deleteVideo(id: number): Promise<boolean>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -49,19 +52,40 @@ export class DatabaseStorage implements IStorage {
     const result = await db.delete(photos).where(eq(photos.id, id));
     return result.rowCount !== null && result.rowCount > 0;
   }
+
+  async getAllVideos(): Promise<Video[]> {
+    return await db.select().from(videos);
+  }
+
+  async createVideo(insertVideo: InsertVideo): Promise<Video> {
+    const [video] = await db
+      .insert(videos)
+      .values(insertVideo)
+      .returning();
+    return video;
+  }
+
+  async deleteVideo(id: number): Promise<boolean> {
+    const result = await db.delete(videos).where(eq(videos.id, id));
+    return result.rowCount !== null && result.rowCount > 0;
+  }
 }
 
 export class MemStorage implements IStorage {
   private users: Map<number, User>;
   private photos: Map<number, Photo>;
+  private videos: Map<number, Video>;
   private currentUserId: number;
   private currentPhotoId: number;
+  private currentVideoId: number;
 
   constructor() {
     this.users = new Map();
     this.photos = new Map();
+    this.videos = new Map();
     this.currentUserId = 1;
     this.currentPhotoId = 1;
+    this.currentVideoId = 1;
   }
 
   async getUser(id: number): Promise<User | undefined> {
@@ -94,6 +118,21 @@ export class MemStorage implements IStorage {
 
   async deletePhoto(id: number): Promise<boolean> {
     return this.photos.delete(id);
+  }
+
+  async getAllVideos(): Promise<Video[]> {
+    return Array.from(this.videos.values());
+  }
+
+  async createVideo(insertVideo: InsertVideo): Promise<Video> {
+    const id = this.currentVideoId++;
+    const video: Video = { ...insertVideo, id };
+    this.videos.set(id, video);
+    return video;
+  }
+
+  async deleteVideo(id: number): Promise<boolean> {
+    return this.videos.delete(id);
   }
 }
 
