@@ -66,6 +66,15 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
       return;
     }
 
+    if (password !== "segreta") {
+      toast({
+        title: "Errore",
+        description: "Password errata",
+        variant: "destructive",
+      });
+      return;
+    }
+
     // Here you would implement video upload logic
     toast({
       title: "Info",
@@ -78,6 +87,15 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
       toast({
         title: "Errore",
         description: "Inserisci la password per eliminare il video",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (deletePassword !== "segreta") {
+      toast({
+        title: "Errore",
+        description: "Password errata",
         variant: "destructive",
       });
       return;
@@ -108,14 +126,15 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
           </div>
         )}
         
-        {/* Navigation controls */}
-        {videos.length > 1 && (
+        {/* Navigation arrows - always visible when there are videos */}
+        {videos.length > 0 && (
           <>
             <Button
               variant="ghost"
               size="sm"
               onClick={prevSlide}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white hover:bg-black/70"
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white hover:bg-black/70 z-20"
+              disabled={videos.length <= 1}
             >
               <ChevronLeft className="h-4 w-4" />
             </Button>
@@ -123,7 +142,8 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
               variant="ghost" 
               size="sm"
               onClick={nextSlide}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white hover:bg-black/70"
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white hover:bg-black/70 z-20"
+              disabled={videos.length <= 1}
             >
               <ChevronRight className="h-4 w-4" />
             </Button>

@@ -56,11 +56,17 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
 
   useEffect(() => {
     if (allPhotos.length > 0) {
-      const shuffled = [...allPhotos].sort(() => Math.random() - 0.5);
-      setShuffledPhotos(shuffled);
-      setCurrentIndex(0);
+      setShuffledPhotos(prev => {
+        // Only shuffle if the array length has changed or it's empty
+        if (prev.length !== allPhotos.length) {
+          const shuffled = [...allPhotos].sort(() => Math.random() - 0.5);
+          setCurrentIndex(0);
+          return shuffled;
+        }
+        return prev;
+      });
     }
-  }, [allPhotos]);
+  }, [allPhotos.length]); // Only depend on length, not the entire array
 
   // Auto-play functionality
   useEffect(() => {
