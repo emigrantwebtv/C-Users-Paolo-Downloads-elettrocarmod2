@@ -65,6 +65,22 @@ export async function registerRoutes(app: Express): Promise<Server> {
   const attachedAssetsDir = path.join(process.cwd(), 'attached_assets');
   app.use('/attached_assets', express.static(attachedAssetsDir));
 
+  // Placeholder image endpoint
+  app.get('/api/placeholder/:width/:height', (req, res) => {
+    const { width, height } = req.params;
+    const svg = `
+      <svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
+        <rect width="100%" height="100%" fill="#f0f0f0"/>
+        <text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" 
+              font-family="Arial, sans-serif" font-size="20" fill="#666">
+          ${width}x${height}
+        </text>
+      </svg>
+    `;
+    res.set('Content-Type', 'image/svg+xml');
+    res.send(svg);
+  });
+
   // Get all photos
   app.get("/api/photos", async (req, res) => {
     try {

@@ -1,0 +1,2 @@
+This directory contains placeholder assets for the ELETTROCAR website.
+In production, this would contain actual business videos and images.

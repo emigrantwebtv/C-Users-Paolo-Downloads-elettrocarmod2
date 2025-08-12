@@ -7,7 +7,7 @@ interface ContentPageProps {
   imageUrl: string;
   imageAlt: string;
   description: string;
-  videoTitle: string;
+  videoTitle?: string;
   videoUrl?: string;
   secondImageUrl?: string;
   secondImageAlt?: string;
@@ -104,7 +104,7 @@ export default function ContentPage({
             </p>
             
             {/* Video section */}
-            {videoUrl ? (
+            {videoUrl && videoTitle ? (
               <div className="rounded-lg overflow-hidden">
                 <video
                   className="w-full h-96 object-cover rounded-lg"
@@ -117,12 +117,12 @@ export default function ContentPage({
                 </video>
                 <p className="text-center text-secondary mt-2 text-sm">{videoTitle}</p>
               </div>
-            ) : (
+            ) : videoTitle ? (
               <div className="bg-gray-100 rounded-lg p-8 text-center border-2 border-dashed border-gray-300">
                 <Play className="h-16 w-16 text-primary mb-4 mx-auto" />
                 <p className="text-secondary">{videoTitle}</p>
               </div>
-            )}
+            ) : null}
           </div>
         </div>
       </main>

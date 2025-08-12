@@ -5,18 +5,14 @@ import { Input } from "@/components/ui/input";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
 import type { Photo } from "@shared/schema";
-import photo1 from "@assets/11_1754458316126.jpg";
-import photo2 from "@assets/44_1754458325476.jpg";
-import photo3 from "@assets/22_1754458363654.jpg";
-
 interface PhotoSlideshowProps {
   className?: string;
 }
 
 const defaultPhotos = [
-  photo1,
-  photo2,
-  photo3
+  "/api/placeholder/600/400",
+  "/api/placeholder/800/600", 
+  "/api/placeholder/700/500"
 ];
 
 export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) {
