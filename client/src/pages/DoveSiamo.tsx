@@ -17,7 +17,7 @@ export default function DoveSiamo() {
         <div className="bg-white rounded-xl shadow-lg overflow-hidden">
           {/* Immagine */}
           <img
-            src="/api/placeholder/800/300"
+            src="/attached_assets/dove siamo_1754563438652.jpg"
             alt="Sede ELETTROCAR"
             className="w-full h-80 object-cover"
           />
