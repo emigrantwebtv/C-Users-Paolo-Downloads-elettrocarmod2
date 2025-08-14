@@ -1,6 +1,6 @@
 import ContentPage from "@/components/ContentPage";
 import videoOfficina from "@assets/video officina_1753348318629.mp4";
-import imageOfficina from "@assets/immagine officina_1753352358242.jpeg";
+import imageOfficina from "@assets/foto_officina_1755166872764.jpeg";
 
 export default function Officina() {
   return (
