@@ -1,5 +1,5 @@
 import ContentPage from "@/components/ContentPage";
-import videoChiSiamo from "@assets/video chi siamo_1753348318630.mp4";
+import videoChiSiamo from "@assets/video_chi_siamo_1755166752323.mp4";
 import imageChiSiamo from "@assets/foto_chi siamo_1755166631504.jpeg";
 
 export default function ChiSiamo() {
