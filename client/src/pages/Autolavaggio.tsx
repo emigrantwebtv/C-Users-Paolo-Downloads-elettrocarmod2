@@ -1,6 +1,6 @@
 import ContentPage from "@/components/ContentPage";
 import videoAutolavaggio from "@assets/video autolavaggio_1753348318630.mp4";
-import imageAutolavaggio from "@assets/immagine autolavaggio_1753352358240.jpeg";
+import imageAutolavaggio from "@assets/foto_autolavaggio_1755167189124.jpeg";
 
 export default function Autolavaggio() {
   return (
