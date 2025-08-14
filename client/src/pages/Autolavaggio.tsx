@@ -1,5 +1,5 @@
 import ContentPage from "@/components/ContentPage";
-import videoAutolavaggio from "@assets/video autolavaggio_1753348318630.mp4";
+import videoAutolavaggio from "@assets/video_autolavaggio_1755167291597.mp4";
 import imageAutolavaggio from "@assets/foto_autolavaggio_1755167189124.jpeg";
 
 export default function Autolavaggio() {
