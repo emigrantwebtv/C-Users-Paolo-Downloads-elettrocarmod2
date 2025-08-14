@@ -1,5 +1,5 @@
 import ContentPage from "@/components/ContentPage";
-import barPhoto from "@assets/foto bar_1754488464141.jpg";
+import barPhoto from "@assets/foto_bar_1755167727857.jpg";
 import barVideo from "@assets/video bar_1754930305960.mp4";
 
 export default function Bar() {
