@@ -1,5 +1,5 @@
 import ContentPage from "@/components/ContentPage";
-import contattiVideo from "@assets/video duplicazione chiavi_1754928761743.mp4";
+import contattiVideo from "@assets/video_duplicazione_chiavi_1755165855810.mp4";
 
 export default function Contatti() {
   return (
