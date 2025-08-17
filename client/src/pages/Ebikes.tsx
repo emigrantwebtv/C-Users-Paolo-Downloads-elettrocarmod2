@@ -1,5 +1,5 @@
 import ContentPage from "@/components/ContentPage";
-import videoEbikes from "@assets/video_ebikes_1755167546199.mp4";
+import videoEbikes from "@assets/video_ebikes_1755451281208.mp4";
 
 export default function Ebikes() {
   return (

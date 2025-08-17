@@ -92,6 +92,7 @@ The application is configured for production deployment with:
 - **Updated Chi Siamo Video**: Replaced company presentation video with new updated version per user request (video_chi_siamo_1755450804254.mp4)
 - **Updated Officina Video**: Replaced workshop video with new updated version per user request (video_officina_1755450938248.mp4)
 - **Updated Autolavaggio Video**: Replaced car wash video with new updated version per user request (video_autolavaggio_1755451124305.mp4)
+- **Updated E-bikes Video**: Replaced e-bike video with new updated version per user request (video_ebikes_1755451281208.mp4)
 - **Photo/Video Gallery**: Upload and delete functionality working with password protection
 - **Google Maps Integration**: "Dove Siamo" page includes interactive map with real business location
 - **Asset Management**: All business videos and images displaying correctly with authentic content
