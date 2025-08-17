@@ -89,7 +89,8 @@ The application is configured for production deployment with:
 - **Database Setup**: Created PostgreSQL database with proper credentials and pushed schema with tables for users, photos, and videos
 - **Application Running**: Fixed all dependency and configuration issues, application now running successfully on port 5000
 - **All Features Working**: All pages (Chi Siamo, Officina, Autolavaggio, E-bikes, Bar, Dove Siamo, Gallery, Contatti) loading properly
-- **Updated Chi Siamo Video**: Replaced company presentation video with new updated version per user request
+- **Updated Chi Siamo Video**: Replaced company presentation video with new updated version per user request (video_chi_siamo_1755450804254.mp4)
+- **Updated Officina Video**: Replaced workshop video with new updated version per user request (video_officina_1755450938248.mp4)
 - **Photo/Video Gallery**: Upload and delete functionality working with password protection
 - **Google Maps Integration**: "Dove Siamo" page includes interactive map with real business location
 - **Asset Management**: All business videos and images displaying correctly with authentic content
