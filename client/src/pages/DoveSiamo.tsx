@@ -72,7 +72,7 @@ export default function DoveSiamo() {
               className="w-full rounded-lg"
               style={{ aspectRatio: '16/9' }}
             >
-              <source src="/attached_assets/gomme_callara_1755168056900.mp4" type="video/mp4" />
+              <source src="/attached_assets/gomme_callara_1755451856061.mp4" type="video/mp4" />
               Il tuo browser non supporta il tag video.
             </video>
           </div>

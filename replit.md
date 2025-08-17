@@ -94,6 +94,7 @@ The application is configured for production deployment with:
 - **Updated Autolavaggio Video**: Replaced car wash video with new updated version per user request (video_autolavaggio_1755451124305.mp4)
 - **Updated E-bikes Video**: Replaced e-bike video with new updated version per user request (video_ebikes_1755451281208.mp4)
 - **Updated Bar Video**: Replaced bar video with new updated version per user request (video_bar_1755451430332.mp4)
+- **Updated Dove Siamo Video**: Replaced tire promotional video with new updated version per user request (gomme_callara_1755451856061.mp4)
 - **Photo/Video Gallery**: Upload and delete functionality working with password protection
 - **Google Maps Integration**: "Dove Siamo" page includes interactive map with real business location
 - **Asset Management**: All business videos and images displaying correctly with authentic content
