@@ -81,7 +81,6 @@ export default function DoveSiamo() {
         {/* Video Chi Siamo aggiunto */}
         <div className="bg-white rounded-xl shadow-lg overflow-hidden mt-6">
           <div className="p-6">
-            <h3 className="text-xl font-bold text-primary mb-4 text-center">Video Presentazione Aziendale</h3>
             <video
               controls
               autoPlay
@@ -92,6 +91,7 @@ export default function DoveSiamo() {
               <source src="/attached_assets/video_chi_siamo_1755450804254.mp4" type="video/mp4" />
               Il tuo browser non supporta il tag video.
             </video>
+            <p className="text-center text-secondary mt-2 text-sm">Video Presentazione Aziendale</p>
           </div>
         </div>
       </main>
