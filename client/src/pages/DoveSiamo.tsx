@@ -67,7 +67,6 @@ export default function DoveSiamo() {
             <video
               controls
               autoPlay
-              loop
               className="w-full rounded-lg"
               style={{ aspectRatio: '16/9' }}
             >
