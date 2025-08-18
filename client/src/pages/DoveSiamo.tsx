@@ -61,23 +61,6 @@ export default function DoveSiamo() {
           </div>
         </div>
 
-        {/* Video section spostata in basso */}
-        <div className="bg-white rounded-xl shadow-lg overflow-hidden mt-6">
-          <div className="p-6">
-            <h3 className="text-xl font-bold text-primary mb-4 text-center">Video Promozionale Pneumatici</h3>
-            <video
-              controls
-              autoPlay
-              loop
-              className="w-full rounded-lg"
-              style={{ aspectRatio: '16/9' }}
-            >
-              <source src="/attached_assets/gomme_callara_1755451856061.mp4" type="video/mp4" />
-              Il tuo browser non supporta il tag video.
-            </video>
-          </div>
-        </div>
-
         {/* Video Chi Siamo aggiunto */}
         <div className="bg-white rounded-xl shadow-lg overflow-hidden mt-6">
           <div className="p-6">
