@@ -91,7 +91,7 @@ export default function DoveSiamo() {
               <source src="/attached_assets/video_chi_siamo_1755450804254.mp4" type="video/mp4" />
               Il tuo browser non supporta il tag video.
             </video>
-            <p className="text-center text-secondary mt-2 text-sm">Video Presentazione Aziendale</p>
+            <p className="text-center text-secondary mt-2 text-sm">Video Promozionale pneumatici</p>
           </div>
         </div>
       </main>
