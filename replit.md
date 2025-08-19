@@ -99,6 +99,7 @@ The application is configured for production deployment with:
 - **Updated E-bikes Images**: Replaced 3 GIF images with single new comprehensive image (animazionebikesOK_1755600733976.gif) per user request
 - **Added E-bikes Logo**: Added ELETTROCARBIKES logo image before main image on E-bikes page (logo_ebikes_1755601785526.jpg)
 - **Added Autolavaggio Logo**: Added ELETTROCARWASH logo image before main image on Autolavaggio page (logo_autolavaggio_1755608277413.jpg)
+- **Added 360° Interactive Feature**: Added clickable ELETTROCARWASH logo with hover tooltip and link to 360-degree virtual tour (http://elettrocarwash.altervista.org/360/app-files/index.html)
 - **Photo/Video Gallery**: Upload and delete functionality working with password protection
 - **Google Maps Integration**: "Dove Siamo" page includes interactive map with real business location
 - **Asset Management**: All business videos and images displaying correctly with authentic content

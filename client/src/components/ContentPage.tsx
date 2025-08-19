@@ -11,6 +11,8 @@ interface ContentPageProps {
   videoUrl?: string;
   secondImageUrl?: string;
   secondImageAlt?: string;
+  secondImageClickUrl?: string;
+  secondImageTooltip?: string;
   leftImageUrl?: string;
   leftImageAlt?: string;
   rightImageUrl?: string;
@@ -26,6 +28,8 @@ export default function ContentPage({
   videoUrl,
   secondImageUrl,
   secondImageAlt,
+  secondImageClickUrl,
+  secondImageTooltip,
   leftImageUrl,
   leftImageAlt,
   rightImageUrl,
@@ -47,11 +51,21 @@ export default function ContentPage({
           {/* Second image first (if exists) */}
           {secondImageUrl && (
             <div className="flex justify-center bg-gray-50 py-4">
-              <img
-                src={secondImageUrl}
-                alt={secondImageAlt || "Immagine aggiuntiva"}
-                className="max-w-full h-auto object-contain"
-              />
+              {secondImageClickUrl ? (
+                <img
+                  src={secondImageUrl}
+                  alt={secondImageAlt || "Immagine aggiuntiva"}
+                  title={secondImageTooltip}
+                  className="max-w-full h-auto object-contain cursor-pointer hover:opacity-80 transition-opacity duration-200"
+                  onClick={() => window.open(secondImageClickUrl, '_blank')}
+                />
+              ) : (
+                <img
+                  src={secondImageUrl}
+                  alt={secondImageAlt || "Immagine aggiuntiva"}
+                  className="max-w-full h-auto object-contain"
+                />
+              )}
             </div>
           )}
           
