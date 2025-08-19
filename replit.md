@@ -96,6 +96,7 @@ The application is configured for production deployment with:
 - **Updated Bar Video**: Replaced bar video with new updated version per user request (video_bar_1755451430332.mp4)
 - **Updated Dove Siamo Video**: Replaced tire promotional video with new updated version per user request (gomme_callara_1755451856061.mp4)
 - **Updated Dove Siamo Videos**: Removed original tire video, kept only company presentation video labeled as tire promotional content per user request
+- **Updated E-bikes Images**: Replaced 3 GIF images with single new comprehensive image (animazionebikesOK_1755600733976.gif) per user request
 - **Photo/Video Gallery**: Upload and delete functionality working with password protection
 - **Google Maps Integration**: "Dove Siamo" page includes interactive map with real business location
 - **Asset Management**: All business videos and images displaying correctly with authentic content
