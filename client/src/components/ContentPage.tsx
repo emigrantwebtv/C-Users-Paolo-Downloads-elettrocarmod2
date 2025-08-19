@@ -44,6 +44,17 @@ export default function ContentPage({
       {/* Content */}
       <main className="container mx-auto px-4 py-6 pb-24">
         <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+          {/* Second image first (if exists) */}
+          {secondImageUrl && (
+            <div className="flex justify-center bg-gray-50 py-4">
+              <img
+                src={secondImageUrl}
+                alt={secondImageAlt || "Immagine aggiuntiva"}
+                className="max-w-full h-auto object-contain"
+              />
+            </div>
+          )}
+          
           {/* Three column layout */}
           {(leftImageUrl || rightImageUrl) ? (
             <div className="flex bg-gray-50 py-4 gap-2">
@@ -83,16 +94,6 @@ export default function ContentPage({
               <img
                 src={imageUrl}
                 alt={imageAlt}
-                className="max-w-full h-auto object-contain"
-              />
-            </div>
-          )}
-          
-          {secondImageUrl && (
-            <div className="flex justify-center bg-gray-50 py-4">
-              <img
-                src={secondImageUrl}
-                alt={secondImageAlt || "Immagine aggiuntiva"}
                 className="max-w-full h-auto object-contain"
               />
             </div>
