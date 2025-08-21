@@ -11,7 +11,7 @@ export default function Bar() {
       description="Mentre aspetti il completamento dei servizi, rilassati nel nostro accogliente bar. Offriamo caffè di qualità, bevande fresche e snack deliziosi in un ambiente confortevole con Wi-Fi gratuito e zona lettura."
       videoUrl={barVideo}
       videoTitle="Video Tour Bar"
-      reducedTopSpacing={true}
+      transparentSpacing={true}
     />
   );
 }

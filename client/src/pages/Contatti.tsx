@@ -11,7 +11,7 @@ export default function Contatti() {
       description="Contattaci per qualsiasi informazione o per prenotare i nostri servizi. Il nostro team è sempre disponibile per fornire consulenza personalizzata e supporto tecnico. Rispondiamo rapidamente a tutte le richieste."
       videoUrl={contattiVideo}
       videoTitle="Video Duplicazione Chiavi"
-      reducedTopSpacing={true}
+      transparentSpacing={true}
     />
   );
 }
