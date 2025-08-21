@@ -169,7 +169,7 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
 
   return (
     <div className={`relative ${className}`}>
-      <div className="bg-gray-100 rounded-lg overflow-hidden">
+      <div className="bg-gray-100 rounded-t-lg overflow-hidden">
         {videos.length === 0 ? (
           <div className="aspect-video bg-gray-200 flex items-center justify-center">
             <div className="text-center">
