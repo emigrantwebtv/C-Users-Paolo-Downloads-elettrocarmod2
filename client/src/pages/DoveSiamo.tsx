@@ -69,10 +69,10 @@ export default function DoveSiamo() {
               autoPlay
               className="w-full h-[506px] object-cover rounded-t-lg"
             >
-              <source src="/attached_assets/video_chi_siamo_1755450804254.mp4" type="video/mp4" />
+              <source src="/attached_assets/gomme_callara_1755451856061_1755812997687.mp4" type="video/mp4" />
               Il tuo browser non supporta il tag video.
             </video>
-            <p className="text-center text-secondary mt-2 text-sm">Video Promozionale pneumatici</p>
+            <p className="text-center text-secondary mt-2 text-sm">Video Promozionale Pneumatici</p>
           </div>
         </div>
       </main>
