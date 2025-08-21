@@ -12,6 +12,7 @@ export default function Contatti() {
       videoUrl={contattiVideo}
       videoTitle="Video Duplicazione Chiavi"
       transparentSpacing={true}
+      imageHeight="h-[506px]"
     />
   );
 }

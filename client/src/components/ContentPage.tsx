@@ -19,6 +19,7 @@ interface ContentPageProps {
   rightImageAlt?: string;
   reducedTopSpacing?: boolean;
   transparentSpacing?: boolean;
+  imageHeight?: string;
 }
 
 export default function ContentPage({
@@ -38,6 +39,7 @@ export default function ContentPage({
   rightImageAlt,
   reducedTopSpacing = false,
   transparentSpacing = false,
+  imageHeight = "h-auto",
 }: ContentPageProps) {
   return (
     <div className="min-h-screen">
@@ -92,7 +94,7 @@ export default function ContentPage({
                 <img
                   src={imageUrl}
                   alt={imageAlt}
-                  className="max-w-full h-auto object-contain rounded-t-xl"
+                  className={`max-w-full ${imageHeight} object-cover rounded-t-xl`}
                 />
               </div>
               
@@ -112,7 +114,7 @@ export default function ContentPage({
               <img
                 src={imageUrl}
                 alt={imageAlt}
-                className="max-w-full h-auto object-contain rounded-t-xl"
+                className={`max-w-full ${imageHeight} object-cover rounded-t-xl`}
               />
             </div>
           )}
