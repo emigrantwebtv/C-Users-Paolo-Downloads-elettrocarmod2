@@ -55,6 +55,18 @@ export default function Contatti() {
                 onClick={() => window.open('http://www.emigrantwebtv.com', '_blank')}
               />
             </div>
+
+            {/* QR Code per l'app */}
+            <div className="mt-8 flex flex-col items-center">
+              <img
+                src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://h1.nu/elettrocar"
+                alt="QR Code per scaricare l'app Elettrocar"
+                className="w-50 h-50"
+              />
+              <p className="text-center text-gray-600 mt-3 text-sm font-medium">
+                Scansiona per scaricare l'app Elettrocar
+              </p>
+            </div>
           </div>
         </div>
       </main>
