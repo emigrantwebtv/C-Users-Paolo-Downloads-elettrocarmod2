@@ -222,7 +222,7 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
             variant="ghost"
             size="sm"
             onClick={togglePlayPause}
-            className="bg-black/50 text-white hover:bg-black/70"
+            className="text-white hover:bg-white/20"
           >
             {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
           </Button>
@@ -230,7 +230,7 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
             variant="ghost"
             size="sm"
             onClick={() => setShowUpload(!showUpload)}
-            className="bg-black/50 text-white hover:bg-black/70"
+            className="text-white hover:bg-white/20"
           >
             <Upload className="h-4 w-4" />
           </Button>
@@ -239,7 +239,7 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
               variant="ghost"
               size="sm"
               onClick={() => setShowManage(!showManage)}
-              className="bg-black/50 text-white hover:bg-black/70"
+              className="text-white hover:bg-white/20"
             >
               <Trash2 className="h-4 w-4" />
             </Button>
@@ -248,7 +248,7 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
 
         {/* Video counter */}
         {videos.length > 0 && (
-          <div className="absolute bottom-4 right-4 bg-black/50 text-white px-2 py-1 rounded text-sm">
+          <div className="absolute bottom-4 right-4 text-white px-2 py-1 rounded text-sm">
             {currentIndex + 1} / {videos.length}
           </div>
         )}

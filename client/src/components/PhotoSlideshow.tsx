@@ -256,7 +256,7 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
       </div>
 
       {/* Controls */}
-      <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white p-3">
+      <div className="absolute bottom-0 left-0 right-0 text-white p-3">
         <div className="flex items-center justify-between">
           {/* Photo counter */}
           <span className="text-sm">
