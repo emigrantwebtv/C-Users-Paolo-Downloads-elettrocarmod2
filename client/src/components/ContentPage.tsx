@@ -60,14 +60,14 @@ export default function ContentPage({
                   src={secondImageUrl}
                   alt={secondImageAlt || "Immagine aggiuntiva"}
                   title={secondImageTooltip}
-                  className="max-w-full h-auto object-contain cursor-pointer hover:opacity-80 transition-opacity duration-200"
+                  className="max-w-full h-auto object-contain cursor-pointer hover:opacity-80 transition-opacity duration-200 rounded-t-xl"
                   onClick={() => window.open(secondImageClickUrl, '_blank')}
                 />
               ) : (
                 <img
                   src={secondImageUrl}
                   alt={secondImageAlt || "Immagine aggiuntiva"}
-                  className="max-w-full h-auto object-contain"
+                  className="max-w-full h-auto object-contain rounded-t-xl"
                 />
               )}
             </div>
@@ -82,7 +82,7 @@ export default function ContentPage({
                   <img
                     src={leftImageUrl}
                     alt={leftImageAlt || "Immagine sinistra"}
-                    className="max-w-full h-auto object-contain"
+                    className="max-w-full h-auto object-contain rounded-t-xl"
                   />
                 )}
               </div>
@@ -92,7 +92,7 @@ export default function ContentPage({
                 <img
                   src={imageUrl}
                   alt={imageAlt}
-                  className="max-w-full h-auto object-contain"
+                  className="max-w-full h-auto object-contain rounded-t-xl"
                 />
               </div>
               
@@ -102,7 +102,7 @@ export default function ContentPage({
                   <img
                     src={rightImageUrl}
                     alt={rightImageAlt || "Immagine destra"}
-                    className="max-w-full h-auto object-contain"
+                    className="max-w-full h-auto object-contain rounded-t-xl"
                   />
                 )}
               </div>
@@ -112,7 +112,7 @@ export default function ContentPage({
               <img
                 src={imageUrl}
                 alt={imageAlt}
-                className="max-w-full h-auto object-contain"
+                className="max-w-full h-auto object-contain rounded-t-xl"
               />
             </div>
           )}
