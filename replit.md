@@ -86,6 +86,7 @@ The application is configured for production deployment with:
 
 ### Latest Updates (January 2025)
 - **Migration Completed**: Successfully migrated project from Replit Agent to Replit environment
+- **Bar Video Updated**: Replaced bar video with new updated version per user request (video_bar_new_1755772201468.mp4)
 - **Database Setup**: Created PostgreSQL database with proper credentials and pushed schema with tables for users, photos, and videos
 - **Application Running**: Fixed all dependency and configuration issues, application now running successfully on port 5000
 - **All Features Working**: All pages (Chi Siamo, Officina, Autolavaggio, E-bikes, Bar, Dove Siamo, Gallery, Contatti) loading properly
