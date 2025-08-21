@@ -67,7 +67,7 @@ export default function DoveSiamo() {
             <video
               controls
               autoPlay
-              className="w-full h-[506px] object-cover rounded-lg"
+              className="w-full h-[506px] object-cover rounded-t-lg"
             >
               <source src="/attached_assets/video_chi_siamo_1755450804254.mp4" type="video/mp4" />
               Il tuo browser non supporta il tag video.
