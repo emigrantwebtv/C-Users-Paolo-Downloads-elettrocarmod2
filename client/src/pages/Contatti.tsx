@@ -1,12 +1,13 @@
 import ContentPage from "@/components/ContentPage";
 import contattiVideo from "@assets/Video Duplicazione Chiavi_1755684979130_1755772415949.mp4";
+import contattiPhoto from "@assets/foto contatti_1755717576894_1755772885332.jpg";
 
 export default function Contatti() {
   return (
     <ContentPage
       title="CONTATTI"
-      imageUrl="https://images.unsplash.com/photo-1556761175-4b46a572b786?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=400"
-      imageAlt="Contatti ELETTROCAR"
+      imageUrl={contattiPhoto}
+      imageAlt="Team ELETTROCAR - Pasquale e Antonio con servizi Magneti Marelli e Checkstar"
       description="Contattaci per qualsiasi informazione o per prenotare i nostri servizi. Il nostro team è sempre disponibile per fornire consulenza personalizzata e supporto tecnico. Rispondiamo rapidamente a tutte le richieste."
       videoUrl={contattiVideo}
       videoTitle="Video Duplicazione Chiavi"
