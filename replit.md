@@ -89,6 +89,8 @@ The application is configured for production deployment with:
 - **Bar Video Updated**: Replaced bar video with new updated version per user request (Video Bar-1_1755675910363_1755772792446.mp4)
 - **Contatti Video Updated**: Replaced contacts page video with new updated version per user request (Video Duplicazione Chiavi_1755684979130_1755772415949.mp4)
 - **Contatti Photo Updated**: Replaced contacts page photo with team photo showing Pasquale and Antonio with Magneti Marelli and Checkstar branding (foto contatti_1755717576894_1755772885332.jpg)
+- **Gallery Slideshow Fixed**: Fixed permanent storage for uploaded photos and videos - now saves to persistent directory and database for permanent retention
+- **Gallery Navigation Transparent**: Made slideshow bottom navigation bars completely transparent for better visual experience
 - **Database Setup**: Created PostgreSQL database with proper credentials and pushed schema with tables for users, photos, and videos
 - **Application Running**: Fixed all dependency and configuration issues, application now running successfully on port 5000
 - **All Features Working**: All pages (Chi Siamo, Officina, Autolavaggio, E-bikes, Bar, Dove Siamo, Gallery, Contatti) loading properly

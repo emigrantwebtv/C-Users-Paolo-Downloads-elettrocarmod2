@@ -7,8 +7,8 @@ import multer from "multer";
 import path from "path";
 import fs from "fs";
 
-// Configure multer for file uploads
-const uploadDir = path.join(process.cwd(), 'uploads');
+// Configure multer for file uploads - use persistent directory
+const uploadDir = path.join(process.cwd(), 'attached_assets', 'gallery_uploads');
 if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
 }
