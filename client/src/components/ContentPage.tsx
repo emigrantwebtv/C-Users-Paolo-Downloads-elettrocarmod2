@@ -49,7 +49,7 @@ export default function ContentPage({
 
       {/* Content */}
       <main className={`container mx-auto px-4 pb-24 ${reducedTopSpacing ? 'pt-0' : 'py-6'}`}>
-        <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+        <div className={`${reducedTopSpacing ? 'bg-transparent shadow-none' : 'bg-white shadow-lg'} rounded-xl overflow-hidden`}>
           {/* Second image first (if exists) */}
           {secondImageUrl && (
             <div className="flex justify-center bg-gray-50 py-4">
@@ -106,7 +106,7 @@ export default function ContentPage({
               </div>
             </div>
           ) : (
-            <div className="flex justify-center bg-gray-50 py-4">
+            <div className={`flex justify-center ${reducedTopSpacing ? 'bg-transparent py-0' : 'bg-gray-50 py-4'}`}>
               <img
                 src={imageUrl}
                 alt={imageAlt}
