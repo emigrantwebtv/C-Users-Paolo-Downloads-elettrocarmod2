@@ -18,6 +18,7 @@ interface ContentPageProps {
   rightImageUrl?: string;
   rightImageAlt?: string;
   reducedTopSpacing?: boolean;
+  transparentSpacing?: boolean;
 }
 
 export default function ContentPage({
@@ -36,6 +37,7 @@ export default function ContentPage({
   rightImageUrl,
   rightImageAlt,
   reducedTopSpacing = false,
+  transparentSpacing = false,
 }: ContentPageProps) {
   return (
     <div className="min-h-screen">
@@ -52,7 +54,7 @@ export default function ContentPage({
         <div className={`${reducedTopSpacing ? 'bg-transparent shadow-none' : 'bg-white shadow-lg'} rounded-xl overflow-hidden`}>
           {/* Second image first (if exists) */}
           {secondImageUrl && (
-            <div className={`flex justify-center ${reducedTopSpacing ? 'bg-transparent py-0' : 'bg-gray-50 py-4'}`}>
+            <div className={`flex justify-center ${reducedTopSpacing ? 'bg-transparent py-0' : transparentSpacing ? 'bg-transparent py-4' : 'bg-gray-50 py-4'}`}>
               {secondImageClickUrl ? (
                 <img
                   src={secondImageUrl}
@@ -73,7 +75,7 @@ export default function ContentPage({
           
           {/* Three column layout */}
           {(leftImageUrl || rightImageUrl) ? (
-            <div className={`flex gap-2 ${reducedTopSpacing ? 'bg-transparent py-0' : 'bg-gray-50 py-4'}`}>
+            <div className={`flex gap-2 ${reducedTopSpacing ? 'bg-transparent py-0' : transparentSpacing ? 'bg-transparent py-4' : 'bg-gray-50 py-4'}`}>
               {/* Left image */}
               <div className="flex-1 flex justify-center">
                 {leftImageUrl && (
@@ -106,7 +108,7 @@ export default function ContentPage({
               </div>
             </div>
           ) : (
-            <div className={`flex justify-center ${reducedTopSpacing ? 'bg-transparent py-0' : 'bg-gray-50 py-4'}`}>
+            <div className={`flex justify-center ${reducedTopSpacing ? 'bg-transparent py-0' : transparentSpacing ? 'bg-transparent py-4' : 'bg-gray-50 py-4'}`}>
               <img
                 src={imageUrl}
                 alt={imageAlt}
