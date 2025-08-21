@@ -171,7 +171,7 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
     <div className={`relative ${className}`}>
       <div className="bg-gray-100 rounded-t-lg overflow-hidden">
         {videos.length === 0 ? (
-          <div className="aspect-video bg-gray-200 flex items-center justify-center">
+          <div className="h-[506px] bg-gray-200 flex items-center justify-center">
             <div className="text-center">
               <Play className="h-16 w-16 text-gray-400 mx-auto mb-4" />
               <p className="text-gray-500">Nessun video caricato</p>
@@ -179,7 +179,7 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
             </div>
           </div>
         ) : (
-          <div className="aspect-video bg-black flex items-center justify-center relative">
+          <div className="h-[506px] bg-black flex items-center justify-center relative">
             <video
               key={videos[currentIndex]?.filename}
               className="w-full h-full object-contain"
