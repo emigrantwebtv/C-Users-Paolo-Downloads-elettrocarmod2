@@ -203,8 +203,7 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
 
   if (isLoading) {
     return (
-      <div className={`bg-gray-200 animate-pulse rounded-lg ${className}`} 
-           style={{ height: '320px' }}>
+      <div className={`bg-gray-200 animate-pulse rounded-lg aspect-video ${className}`}>
         <div className="flex items-center justify-center h-full">
           <span className="text-gray-500">Caricamento...</span>
         </div>
@@ -214,17 +213,16 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
 
   if (shuffledPhotos.length === 0) {
     return (
-      <div className={`bg-gray-100 rounded-lg flex items-center justify-center ${className}`} 
-           style={{ height: '320px' }}>
+      <div className={`bg-gray-100 rounded-lg flex items-center justify-center aspect-video ${className}`}>
         <span className="text-gray-500">Nessuna foto disponibile</span>
       </div>
     );
   }
 
   return (
-    <div className={`relative bg-black rounded-lg overflow-hidden ${className}`}>
+    <div className={`relative bg-black rounded-lg overflow-hidden aspect-video ${className}`}>
       {/* Main image */}
-      <div className="relative" style={{ height: '320px' }}>
+      <div className="relative h-full">
         <img
           src={shuffledPhotos[currentIndex].url}
           alt={`Foto ${currentIndex + 1}`}
