@@ -13,11 +13,7 @@ interface PhotoSlideshowProps {
   className?: string;
 }
 
-const defaultPhotos = [
-  photo1,
-  photo2,
-  photo3
-];
+const defaultPhotos: string[] = [];
 
 export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) {
   const [currentIndex, setCurrentIndex] = useState(0);

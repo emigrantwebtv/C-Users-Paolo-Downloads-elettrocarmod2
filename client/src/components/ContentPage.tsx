@@ -124,9 +124,9 @@ export default function ContentPage({
             
             {/* Video section */}
             {videoUrl && videoTitle ? (
-              <div className="rounded-lg overflow-hidden">
+              <div className="rounded-t-lg overflow-hidden">
                 <video
-                  className="w-full h-96 object-cover rounded-lg"
+                  className="w-full h-96 object-cover rounded-t-lg"
                   controls
                   autoPlay
                   playsInline
