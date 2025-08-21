@@ -17,6 +17,7 @@ interface ContentPageProps {
   leftImageAlt?: string;
   rightImageUrl?: string;
   rightImageAlt?: string;
+  reducedTopSpacing?: boolean;
 }
 
 export default function ContentPage({
@@ -34,6 +35,7 @@ export default function ContentPage({
   leftImageAlt,
   rightImageUrl,
   rightImageAlt,
+  reducedTopSpacing = false,
 }: ContentPageProps) {
   return (
     <div className="min-h-screen">
@@ -46,7 +48,7 @@ export default function ContentPage({
       </header>
 
       {/* Content */}
-      <main className="container mx-auto px-4 py-6 pb-24">
+      <main className={`container mx-auto px-4 pb-24 ${reducedTopSpacing ? 'pt-0' : 'py-6'}`}>
         <div className="bg-white rounded-xl shadow-lg overflow-hidden">
           {/* Second image first (if exists) */}
           {secondImageUrl && (
