@@ -58,9 +58,9 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
 
   // Helper function to generate full URL for mobile compatibility
   const getImageUrl = (filename: string) => {
-    // Use current window location to build absolute URL for mobile compatibility
+    // Use attached_assets path which is proven to work
     const baseUrl = window.location.origin;
-    const url = `${baseUrl}/uploads/${filename}`;
+    const url = `${baseUrl}/attached_assets/gallery_uploads/${filename}`;
     // Debug logging for mobile troubleshooting
     if (DEBUG_PHOTOS) {
       console.log('Generated image URL:', url);
@@ -443,7 +443,7 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
                       <div key={photo.id} className="flex items-center justify-between p-2 border rounded">
                         <div className="flex items-center space-x-2">
                           <img
-                            src={getImageUrl(photo.filename)}
+                            src={`${window.location.origin}/attached_assets/gallery_uploads/${photo.filename}`}
                             alt={photo.originalName}
                             className="w-12 h-12 object-cover rounded"
                             onError={(e) => {
