@@ -58,8 +58,15 @@ const uploadVideo = multer({
 });
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Serve uploaded files statically
-  app.use('/uploads', express.static(uploadDir));
+  // Serve uploaded files statically with no-cache headers for mobile compatibility
+  app.use('/uploads', express.static(uploadDir, {
+    setHeaders: (res, path) => {
+      // Disable caching for all uploaded images to ensure mobile browsers show latest content
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+      res.setHeader('Pragma', 'no-cache');
+      res.setHeader('Expires', '0');
+    }
+  }));
   
   // Serve attached assets statically
   const attachedAssetsDir = path.join(process.cwd(), 'attached_assets');
@@ -84,6 +91,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Get all photos
   app.get("/api/photos", async (req, res) => {
     try {
+      // Add no-cache headers for API responses
+      res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
+      res.setHeader('Pragma', 'no-cache');
+      res.setHeader('Expires', '0');
+      
       const photos = await storage.getAllPhotos();
       res.json(photos);
     } catch (error) {
