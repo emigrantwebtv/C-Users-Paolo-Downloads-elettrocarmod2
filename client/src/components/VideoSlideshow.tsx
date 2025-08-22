@@ -13,6 +13,11 @@ interface Video {
   uploadedAt: string;
 }
 
+// Fallback videos - hardcoded list as backup for mobile issues
+const fallbackVideos = [
+  '1755883308360-449609960.mp4'
+];
+
 interface VideoSlideshowProps {
   className?: string;
 }
@@ -38,20 +43,33 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
     return `${baseUrl}/uploads/${filename}`;
   };
 
-  // Fetch videos from API
+  // Fetch videos from API with forced refresh for mobile
   const { data: videos = [], isLoading } = useQuery<Video[]>({
     queryKey: ["/api/videos"],
+    staleTime: 0, // Always consider data stale
+    gcTime: 0, // Don't cache the data (TanStack Query v5)
+    refetchOnMount: true, // Always refetch when component mounts
+    refetchOnWindowFocus: true, // Refetch when window gets focus
   });
 
+  // Ensure we have videos to display, with fallback
+  const displayVideos = videos && videos.length > 0 ? videos : 
+    (!isLoading ? fallbackVideos.map((filename, index) => ({
+      id: index + 1000, // Use high IDs to avoid conflicts
+      filename,
+      originalName: filename,
+      uploadedAt: new Date().toISOString()
+    })) : []);
+
   const nextSlide = () => {
-    if (videos.length > 0) {
-      setCurrentIndex((prev) => (prev + 1) % videos.length);
+    if (displayVideos.length > 0) {
+      setCurrentIndex((prev) => (prev + 1) % displayVideos.length);
     }
   };
 
   const prevSlide = () => {
-    if (videos.length > 0) {
-      setCurrentIndex((prev) => (prev - 1 + videos.length) % videos.length);
+    if (displayVideos.length > 0) {
+      setCurrentIndex((prev) => (prev - 1 + displayVideos.length) % displayVideos.length);
     }
   };
 
@@ -177,7 +195,7 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
   return (
     <div className={`relative ${className}`}>
       <div className="bg-gray-100 rounded-t-lg overflow-hidden">
-        {videos.length === 0 ? (
+        {displayVideos.length === 0 ? (
           <div className="h-[506px] bg-gray-200 flex items-center justify-center">
             <div className="text-center">
               <Play className="h-16 w-16 text-gray-400 mx-auto mb-4" />
@@ -188,26 +206,26 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
         ) : (
           <div className="h-[506px] bg-black flex items-center justify-center relative">
             <video
-              key={videos[currentIndex]?.filename}
+              key={displayVideos[currentIndex]?.filename}
               className="w-full h-full object-contain"
               controls
               playsInline
             >
-              <source src={getVideoUrl(videos[currentIndex]?.filename)} type="video/mp4" />
+              <source src={getVideoUrl(displayVideos[currentIndex]?.filename)} type="video/mp4" />
               Il tuo browser non supporta il tag video.
             </video>
           </div>
         )}
         
         {/* Navigation arrows - always visible when there are videos */}
-        {videos.length > 0 && (
+        {displayVideos.length > 0 && (
           <>
             <Button
               variant="ghost"
               size="sm"
               onClick={prevSlide}
               className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white hover:bg-black/70 z-20"
-              disabled={videos.length <= 1}
+              disabled={displayVideos.length <= 1}
             >
               <ChevronLeft className="h-4 w-4" />
             </Button>
@@ -216,7 +234,7 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
               size="sm"
               onClick={nextSlide}
               className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white hover:bg-black/70 z-20"
-              disabled={videos.length <= 1}
+              disabled={displayVideos.length <= 1}
             >
               <ChevronRight className="h-4 w-4" />
             </Button>
@@ -241,7 +259,7 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
           >
             <Upload className="h-4 w-4" />
           </Button>
-          {videos.length > 0 && (
+          {displayVideos.length > 0 && (
             <Button
               variant="ghost"
               size="sm"
@@ -254,9 +272,9 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
         </div>
 
         {/* Video counter */}
-        {videos.length > 0 && (
+        {displayVideos.length > 0 && (
           <div className="absolute bottom-4 right-4 text-white px-2 py-1 rounded text-sm">
-            {currentIndex + 1} / {videos.length}
+            {currentIndex + 1} / {displayVideos.length}
           </div>
         )}
       </div>
@@ -284,7 +302,7 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
               <Upload className="h-4 w-4 mr-1" />
               Carica
             </Button>
-            {videos.length > 0 && (
+            {displayVideos.length > 0 && (
               <Button
                 variant={activeTab === 'manage' ? 'default' : 'outline'}
                 size="sm"
@@ -333,10 +351,10 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
           )}
           
           {/* Manage tab */}
-          {activeTab === 'manage' && videos.length > 0 && (
+          {activeTab === 'manage' && displayVideos.length > 0 && (
             <div className="space-y-4">
               <div className="max-h-40 overflow-y-auto space-y-2">
-                {videos.map((video, index) => (
+                {displayVideos.map((video, index) => (
                   <div key={video.id} className="flex items-center justify-between p-2 bg-gray-50 rounded">
                     <span className="text-sm">{video.originalName || `Video ${index + 1}`}</span>
                     <Button
