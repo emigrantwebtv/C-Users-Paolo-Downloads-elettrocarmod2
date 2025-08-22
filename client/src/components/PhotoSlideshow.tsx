@@ -13,10 +13,20 @@ interface PhotoSlideshowProps {
   className?: string;
 }
 
+// Fallback photos - hardcoded list as backup for mobile issues
+const fallbackPhotos = [
+  '1755780899013-989095684.jpg',
+  '1755781076723-597670082.jpg', 
+  '1755781097392-27817653.jpg',
+  '1755781109597-245662168.jpg',
+  '1755781155038-940114711.jpg',
+  '1755781177627-772231227.jpg'
+];
+
 const defaultPhotos: string[] = [];
 
 // Add some debug logging for mobile troubleshooting
-const DEBUG_PHOTOS = false;
+const DEBUG_PHOTOS = true;
 
 export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -36,28 +46,67 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
     queryKey: ["/api/photos"],
     staleTime: 0, // Always consider data stale
     gcTime: 0, // Don't cache the data (TanStack Query v5)
+    refetchOnMount: true, // Always refetch when component mounts
+    refetchOnWindowFocus: true, // Refetch when window gets focus
   });
+
+  // Debug logging
+  if (DEBUG_PHOTOS) {
+    console.log('PhotoSlideshow - photos from API:', photos);
+    console.log('PhotoSlideshow - isLoading:', isLoading);
+  }
 
   // Helper function to generate full URL for mobile compatibility
   const getImageUrl = (filename: string) => {
     // Use current window location to build absolute URL for mobile compatibility
     const baseUrl = window.location.origin;
-    return `${baseUrl}/uploads/${filename}`;
+    const url = `${baseUrl}/uploads/${filename}`;
+    // Debug logging for mobile troubleshooting
+    if (DEBUG_PHOTOS) {
+      console.log('Generated image URL:', url);
+    }
+    return url;
   };
 
   // Create combined photo list with URLs using useMemo to prevent infinite re-renders
-  const allPhotos = useMemo(() => [
-    ...defaultPhotos.map((url, index) => ({ 
-      id: `default-${index}`, 
-      url, 
-      isDefault: true 
-    })),
-    ...(photos || []).map((photo: Photo) => ({ 
-      id: photo.id.toString(), 
-      url: getImageUrl(photo.filename), 
-      isDefault: false 
-    }))
-  ], [photos]);
+  const allPhotos = useMemo(() => {
+    // Start with default photos
+    let result = [
+      ...defaultPhotos.map((url, index) => ({ 
+        id: `default-${index}`, 
+        url, 
+        isDefault: true 
+      }))
+    ];
+    
+    // Add API photos if available
+    if (photos && photos.length > 0) {
+      result.push(...photos.map((photo: Photo) => ({ 
+        id: photo.id.toString(), 
+        url: getImageUrl(photo.filename), 
+        isDefault: false 
+      })));
+    } else if (!isLoading) {
+      // Fallback: if API fails, use hardcoded list
+      result.push(...fallbackPhotos.map((filename, index) => ({ 
+        id: `fallback-${index}`, 
+        url: getImageUrl(filename), 
+        isDefault: false 
+      })));
+      
+      if (DEBUG_PHOTOS) {
+        console.log('PhotoSlideshow - Using fallback photos');
+      }
+    }
+    
+    if (DEBUG_PHOTOS) {
+      console.log('PhotoSlideshow - allPhotos computed:', result);
+      console.log('PhotoSlideshow - photos length:', photos?.length);
+      console.log('PhotoSlideshow - isLoading:', isLoading);
+    }
+    
+    return result;
+  }, [photos, isLoading]);
 
   // Shuffle photos randomly
   const [shuffledPhotos, setShuffledPhotos] = useState<typeof allPhotos>([]);
