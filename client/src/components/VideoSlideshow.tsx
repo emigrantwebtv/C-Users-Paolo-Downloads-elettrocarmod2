@@ -31,6 +31,13 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
+  // Helper function to generate full URL for mobile compatibility
+  const getVideoUrl = (filename: string) => {
+    // Use current window location to build absolute URL for mobile compatibility
+    const baseUrl = window.location.origin;
+    return `${baseUrl}/uploads/${filename}`;
+  };
+
   // Fetch videos from API
   const { data: videos = [], isLoading } = useQuery<Video[]>({
     queryKey: ["/api/videos"],
@@ -186,7 +193,7 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
               controls
               playsInline
             >
-              <source src={`/uploads/${videos[currentIndex]?.filename}`} type="video/mp4" />
+              <source src={getVideoUrl(videos[currentIndex]?.filename)} type="video/mp4" />
               Il tuo browser non supporta il tag video.
             </video>
           </div>
