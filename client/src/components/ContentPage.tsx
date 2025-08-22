@@ -20,6 +20,7 @@ interface ContentPageProps {
   reducedTopSpacing?: boolean;
   transparentSpacing?: boolean;
   imageHeight?: string;
+  secondImageHeight?: string;
 }
 
 export default function ContentPage({
@@ -40,6 +41,7 @@ export default function ContentPage({
   reducedTopSpacing = false,
   transparentSpacing = false,
   imageHeight = "h-auto",
+  secondImageHeight = "h-auto",
 }: ContentPageProps) {
   return (
     <div className="min-h-screen">
@@ -62,14 +64,14 @@ export default function ContentPage({
                   src={secondImageUrl}
                   alt={secondImageAlt || "Immagine aggiuntiva"}
                   title={secondImageTooltip}
-                  className="max-w-full h-auto object-contain cursor-pointer hover:opacity-80 transition-opacity duration-200 rounded-t-xl"
+                  className={`max-w-full ${secondImageHeight} object-cover cursor-pointer hover:opacity-80 transition-opacity duration-200 rounded-t-xl`}
                   onClick={() => window.open(secondImageClickUrl, '_blank')}
                 />
               ) : (
                 <img
                   src={secondImageUrl}
                   alt={secondImageAlt || "Immagine aggiuntiva"}
-                  className="max-w-full h-auto object-contain rounded-t-xl"
+                  className={`max-w-full ${secondImageHeight} object-cover rounded-t-xl`}
                 />
               )}
             </div>
