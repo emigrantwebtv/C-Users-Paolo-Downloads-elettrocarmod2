@@ -21,6 +21,7 @@ interface ContentPageProps {
   transparentSpacing?: boolean;
   imageHeight?: string;
   secondImageHeight?: string;
+  imageWidth?: string;
 }
 
 export default function ContentPage({
@@ -42,6 +43,7 @@ export default function ContentPage({
   transparentSpacing = false,
   imageHeight = "h-auto",
   secondImageHeight = "h-auto",
+  imageWidth = "max-w-full",
 }: ContentPageProps) {
   return (
     <div className="min-h-screen">
@@ -96,7 +98,7 @@ export default function ContentPage({
                 <img
                   src={imageUrl}
                   alt={imageAlt}
-                  className={`max-w-full ${imageHeight} object-cover rounded-t-xl`}
+                  className={`${imageWidth} ${imageHeight} object-cover rounded-t-xl`}
                 />
               </div>
               
@@ -116,7 +118,7 @@ export default function ContentPage({
               <img
                 src={imageUrl}
                 alt={imageAlt}
-                className={`max-w-full ${imageHeight} object-cover rounded-t-xl`}
+                className={`${imageWidth} ${imageHeight} object-cover rounded-t-xl`}
               />
             </div>
           )}
