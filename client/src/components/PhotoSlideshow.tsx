@@ -38,6 +38,13 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
     gcTime: 0, // Don't cache the data (TanStack Query v5)
   });
 
+  // Helper function to generate full URL for mobile compatibility
+  const getImageUrl = (filename: string) => {
+    // Use current window location to build absolute URL for mobile compatibility
+    const baseUrl = window.location.origin;
+    return `${baseUrl}/uploads/${filename}`;
+  };
+
   // Create combined photo list with URLs using useMemo to prevent infinite re-renders
   const allPhotos = useMemo(() => [
     ...defaultPhotos.map((url, index) => ({ 
@@ -47,7 +54,7 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
     })),
     ...(photos || []).map((photo: Photo) => ({ 
       id: photo.id.toString(), 
-      url: `/uploads/${photo.filename}`, 
+      url: getImageUrl(photo.filename), 
       isDefault: false 
     }))
   ], [photos]);
@@ -387,7 +394,7 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
                       <div key={photo.id} className="flex items-center justify-between p-2 border rounded">
                         <div className="flex items-center space-x-2">
                           <img
-                            src={`/uploads/${photo.filename}`}
+                            src={getImageUrl(photo.filename)}
                             alt={photo.originalName}
                             className="w-12 h-12 object-cover rounded"
                             onError={(e) => {
