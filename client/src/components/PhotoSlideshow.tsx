@@ -15,6 +15,9 @@ interface PhotoSlideshowProps {
 
 const defaultPhotos: string[] = [];
 
+// Add some debug logging for mobile troubleshooting
+const DEBUG_PHOTOS = false;
+
 export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -28,9 +31,11 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
-  // Fetch photos from API
+  // Fetch photos from API with forced refresh for mobile
   const { data: photos = [], isLoading } = useQuery<Photo[]>({
     queryKey: ["/api/photos"],
+    staleTime: 0, // Always consider data stale
+    gcTime: 0, // Don't cache the data (TanStack Query v5)
   });
 
   // Create combined photo list with URLs using useMemo to prevent infinite re-renders
@@ -40,7 +45,7 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
       url, 
       isDefault: true 
     })),
-    ...photos.map(photo => ({ 
+    ...(photos || []).map((photo: Photo) => ({ 
       id: photo.id.toString(), 
       url: `/uploads/${photo.filename}`, 
       isDefault: false 
@@ -53,16 +58,18 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
   useEffect(() => {
     if (allPhotos.length > 0) {
       setShuffledPhotos(prev => {
-        // Only shuffle if the array length has changed or it's empty
-        if (prev.length !== allPhotos.length) {
+        // Only shuffle if the array length has changed or it's empty - prevent infinite loops
+        if (prev.length !== allPhotos.length || prev.length === 0) {
           const shuffled = [...allPhotos].sort(() => Math.random() - 0.5);
           setCurrentIndex(0);
           return shuffled;
         }
         return prev;
       });
+    } else {
+      setShuffledPhotos([]);
     }
-  }, [allPhotos.length]); // Only depend on length, not the entire array
+  }, [allPhotos.length]); // Only depend on length to prevent infinite re-renders
 
   // Auto-play functionality
   useEffect(() => {
@@ -370,13 +377,13 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
                 
                 <div className="space-y-2 max-h-32 overflow-y-auto border border-gray-200 rounded p-2">
                   <h4 className="text-sm font-medium">Foto caricate da utenti:</h4>
-                  {photos.length === 0 ? (
+                  {(photos || []).length === 0 ? (
                     <p className="text-sm text-gray-500 text-center py-4">
                       Nessuna foto caricata tramite upload.<br/>
                       Le foto della gallery predefinite non possono essere eliminate.
                     </p>
                   ) : (
-                    photos.map((photo) => (
+                    (photos || []).map((photo: Photo) => (
                       <div key={photo.id} className="flex items-center justify-between p-2 border rounded">
                         <div className="flex items-center space-x-2">
                           <img
