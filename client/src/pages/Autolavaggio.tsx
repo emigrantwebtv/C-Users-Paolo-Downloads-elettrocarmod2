@@ -16,7 +16,7 @@ export default function Autolavaggio() {
       videoTitle="Video Processo di Lavaggio"
       videoUrl={videoAutolavaggio}
       transparentSpacing={true}
-      secondImageHeight="h-[506px]"
+      imageHeight="h-[506px]"
     />
   );
 }
