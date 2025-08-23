@@ -22,7 +22,7 @@ export default function Contatti() {
             <img
               src={contattiPhoto}
               alt="Team ELETTROCAR - Pasquale e Antonio con servizi Magneti Marelli e Checkstar"
-              className="max-w-full h-[60vh] max-h-screen object-cover rounded-t-xl"
+              className="max-w-full aspect-video max-h-[60vh] object-contain rounded-t-xl"
             />
           </div>
           
@@ -34,7 +34,7 @@ export default function Contatti() {
             {/* Video section */}
             <div className="rounded-t-lg overflow-hidden">
               <video
-                className="w-full h-[60vh] max-h-screen object-cover rounded-t-lg"
+                className="w-full aspect-video max-h-[60vh] object-contain rounded-t-lg"
                 controls
                 autoPlay
                 playsInline

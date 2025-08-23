@@ -262,7 +262,7 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
 
   if (isLoading) {
     return (
-      <div className={`bg-gray-200 animate-pulse rounded-t-lg h-[60vh] max-h-screen ${className}`}>
+      <div className={`bg-gray-200 animate-pulse rounded-t-lg aspect-video max-h-[60vh] ${className}`}>
         <div className="flex items-center justify-center h-full">
           <span className="text-gray-500">Caricamento...</span>
         </div>
@@ -272,20 +272,20 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
 
   if (shuffledPhotos.length === 0) {
     return (
-      <div className={`bg-gray-100 rounded-t-lg flex items-center justify-center h-[60vh] max-h-screen ${className}`}>
+      <div className={`bg-gray-100 rounded-t-lg flex items-center justify-center aspect-video max-h-[60vh] ${className}`}>
         <span className="text-gray-500">Nessuna foto disponibile</span>
       </div>
     );
   }
 
   return (
-    <div className={`relative bg-black rounded-t-lg overflow-hidden h-[60vh] max-h-screen ${className}`}>
+    <div className={`relative bg-black rounded-t-lg overflow-hidden aspect-video max-h-[60vh] ${className}`}>
       {/* Main image */}
       <div className="relative h-full">
         <img
           src={shuffledPhotos[currentIndex].url}
           alt={`Foto ${currentIndex + 1}`}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain"
           onError={(e) => {
             // Fallback to default image if upload fails to load
             e.currentTarget.src = defaultPhotos[0];
