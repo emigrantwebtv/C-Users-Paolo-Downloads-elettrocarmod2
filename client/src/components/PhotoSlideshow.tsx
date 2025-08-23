@@ -281,11 +281,11 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
   return (
     <div className={`relative bg-black rounded-t-lg overflow-hidden h-auto ${className}`}>
       {/* Main image */}
-      <div className="relative h-full">
+      <div className="relative h-auto">
         <img
           src={shuffledPhotos[currentIndex].url}
           alt={`Foto ${currentIndex + 1}`}
-          className="w-full h-full object-cover"
+          className="w-full h-auto object-cover"
           onError={(e) => {
             // Fallback to default image if upload fails to load
             e.currentTarget.src = defaultPhotos[0];

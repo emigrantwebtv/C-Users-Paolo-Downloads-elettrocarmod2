@@ -207,7 +207,7 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
           <div className="h-auto bg-black flex items-center justify-center relative">
             <video
               key={displayVideos[currentIndex]?.filename}
-              className="w-full h-full object-contain"
+              className="w-full h-auto object-contain"
               controls
               playsInline
             >
