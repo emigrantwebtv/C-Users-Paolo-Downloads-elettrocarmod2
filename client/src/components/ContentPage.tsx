@@ -56,7 +56,7 @@ export default function ContentPage({
       </header>
 
       {/* Content */}
-      <main className={`container mx-auto px-4 pb-8 ${reducedTopSpacing ? 'pt-2' : transparentSpacing ? 'pt-2' : 'py-6'}`}>
+      <main className={`container mx-auto px-4 ${reducedTopSpacing ? 'pt-2' : transparentSpacing ? 'pt-2' : 'py-6'}`}>
         <div className={`${reducedTopSpacing ? 'bg-transparent shadow-none' : transparentSpacing ? 'bg-transparent shadow-none' : 'bg-white shadow-lg'} rounded-xl overflow-hidden`}>
           {/* Second image first (if exists) */}
           {secondImageUrl && (

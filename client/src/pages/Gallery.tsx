@@ -14,7 +14,7 @@ export default function Gallery() {
       </header>
 
       {/* Content */}
-      <main className="container mx-auto px-4 py-6 pb-24">
+      <main className="container mx-auto px-4 py-6">
         <div className="bg-white rounded-xl shadow-lg overflow-hidden">
           {/* Slideshow sostituisce l'immagine */}
           <PhotoSlideshow className="w-full" />

@@ -13,7 +13,7 @@ export default function DoveSiamo() {
       </header>
 
       {/* Content */}
-      <main className="container mx-auto px-4 py-6 pb-24">
+      <main className="container mx-auto px-4 py-6">
         <div className="bg-white rounded-xl shadow-lg overflow-hidden">
           {/* Immagine */}
           <img
