@@ -56,7 +56,7 @@ export default function ContentPage({
       </header>
 
       {/* Content */}
-      <main className={`container mx-auto px-4 pb-24 ${reducedTopSpacing ? 'pt-2' : transparentSpacing ? 'pt-2' : 'py-6'}`}>
+      <main className={`container mx-auto px-4 pb-8 ${reducedTopSpacing ? 'pt-2' : transparentSpacing ? 'pt-2' : 'py-6'}`}>
         <div className={`${reducedTopSpacing ? 'bg-transparent shadow-none' : transparentSpacing ? 'bg-transparent shadow-none' : 'bg-white shadow-lg'} rounded-xl overflow-hidden`}>
           {/* Second image first (if exists) */}
           {secondImageUrl && (
@@ -132,7 +132,7 @@ export default function ContentPage({
             {videoUrl && videoTitle ? (
               <div className="rounded-t-lg overflow-hidden">
                 <video
-                  className="w-full h-[506px] object-cover rounded-t-lg"
+                  className="w-full h-auto object-cover rounded-t-lg"
                   controls
                   autoPlay
                   playsInline
