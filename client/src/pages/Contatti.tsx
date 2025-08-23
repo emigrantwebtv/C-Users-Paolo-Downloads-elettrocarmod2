@@ -15,7 +15,7 @@ export default function Contatti() {
       </header>
 
       {/* Content */}
-      <main className="container mx-auto px-4 pt-2 pb-24">
+      <main className="container mx-auto px-4 pt-2">
         <div className="bg-transparent shadow-none rounded-xl overflow-hidden">
           {/* Main image */}
           <div className="flex justify-center bg-transparent py-4">
