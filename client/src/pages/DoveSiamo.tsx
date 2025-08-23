@@ -19,7 +19,7 @@ export default function DoveSiamo() {
           <img
             src="/attached_assets/dove_siamo_1755168166832.jpg"
             alt="Sede ELETTROCAR"
-            className="w-full aspect-video max-h-[60vh] object-contain"
+            className="w-full h-[60vh] object-cover"
           />
           
           <div className="p-6">
@@ -67,7 +67,7 @@ export default function DoveSiamo() {
             <video
               controls
               autoPlay
-              className="w-full aspect-video max-h-[60vh] object-contain rounded-t-lg"
+              className="w-full h-[60vh] object-cover rounded-t-lg"
             >
               <source src="/attached_assets/gomme_callara_1755451856061_1755812997687.mp4" type="video/mp4" />
               Il tuo browser non supporta il tag video.
