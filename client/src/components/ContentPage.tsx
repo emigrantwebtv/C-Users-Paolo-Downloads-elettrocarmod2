@@ -88,7 +88,7 @@ export default function ContentPage({
                   <img
                     src={leftImageUrl}
                     alt={leftImageAlt || "Immagine sinistra"}
-                    className="max-w-full h-auto object-contain rounded-t-xl"
+                    className="w-full h-[60vh] object-cover rounded-t-xl"
                   />
                 )}
               </div>
@@ -108,7 +108,7 @@ export default function ContentPage({
                   <img
                     src={rightImageUrl}
                     alt={rightImageAlt || "Immagine destra"}
-                    className="max-w-full h-auto object-contain rounded-t-xl"
+                    className="w-full h-[60vh] object-cover rounded-t-xl"
                   />
                 )}
               </div>
