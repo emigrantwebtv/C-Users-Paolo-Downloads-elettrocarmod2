@@ -88,7 +88,7 @@ export default function ContentPage({
                   <img
                     src={leftImageUrl}
                     alt={leftImageAlt || "Immagine sinistra"}
-                    className="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] object-contain sm:object-cover rounded-t-xl slideshow-container"
+                    className="w-full h-[60vh] sm:h-[60vh] md:h-[70vh] object-cover rounded-t-xl slideshow-container"
                   />
                 )}
               </div>
@@ -98,7 +98,7 @@ export default function ContentPage({
                 <img
                   src={imageUrl}
                   alt={imageAlt}
-                  className="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] object-contain sm:object-cover rounded-t-xl slideshow-container"
+                  className="w-full h-[60vh] sm:h-[60vh] md:h-[70vh] object-cover rounded-t-xl slideshow-container"
                 />
               </div>
               
@@ -108,7 +108,7 @@ export default function ContentPage({
                   <img
                     src={rightImageUrl}
                     alt={rightImageAlt || "Immagine destra"}
-                    className="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] object-contain sm:object-cover rounded-t-xl slideshow-container"
+                    className="w-full h-[60vh] sm:h-[60vh] md:h-[70vh] object-cover rounded-t-xl slideshow-container"
                   />
                 )}
               </div>
@@ -118,7 +118,7 @@ export default function ContentPage({
               <img
                 src={imageUrl}
                 alt={imageAlt}
-                className={`w-full h-[50vh] sm:h-[60vh] md:h-[70vh] object-contain sm:object-cover rounded-t-xl slideshow-container`}
+                className={`w-full h-[60vh] sm:h-[60vh] md:h-[70vh] object-cover rounded-t-xl slideshow-container`}
               />
             </div>
           )}
@@ -132,7 +132,7 @@ export default function ContentPage({
             {videoUrl && videoTitle ? (
               <div className="rounded-t-lg overflow-hidden">
                 <video
-                  className="w-full h-[60vh] object-cover rounded-t-lg"
+                  className="w-full h-[60vh] sm:h-[60vh] md:h-[70vh] object-cover rounded-t-lg slideshow-container"
                   controls
                   autoPlay
                   playsInline

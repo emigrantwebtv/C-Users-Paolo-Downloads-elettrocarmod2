@@ -196,7 +196,7 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
     <div className={`relative ${className}`}>
       <div className="bg-gray-100 rounded-t-lg overflow-hidden">
         {displayVideos.length === 0 ? (
-          <div className="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] bg-gray-200 flex items-center justify-center">
+          <div className="w-full h-[60vh] sm:h-[60vh] md:h-[70vh] bg-gray-200 flex items-center justify-center slideshow-container">
             <div className="text-center">
               <Play className="h-16 w-16 text-gray-400 mx-auto mb-4" />
               <p className="text-gray-500">Nessun video caricato</p>
@@ -204,10 +204,10 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
             </div>
           </div>
         ) : (
-          <div className="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] bg-black flex items-center justify-center relative slideshow-container">
+          <div className="w-full h-[60vh] sm:h-[60vh] md:h-[70vh] bg-black flex items-center justify-center relative slideshow-container">
             <video
               key={displayVideos[currentIndex]?.filename}
-              className="w-full h-full object-contain sm:object-cover"
+              className="w-full h-full object-cover"
               style={{
                 maxWidth: '100%',
                 maxHeight: '100%'
