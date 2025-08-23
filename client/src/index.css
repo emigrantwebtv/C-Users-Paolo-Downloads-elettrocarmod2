@@ -96,6 +96,13 @@ img {
 
 /* Mobile-optimized media styles */
 @media (max-width: 640px) {
+  /* Force horizontal aspect ratio for all slideshow containers on mobile */
+  .slideshow-container {
+    width: 100% !important;
+    aspect-ratio: 16/9 !important;
+    height: auto !important;
+  }
+  
   /* Force full width adaptation for all media content on smartphones */
   img, video {
     width: 100% !important;
@@ -104,19 +111,19 @@ img {
     object-position: center !important;
   }
   
-  /* Slideshow containers always use maximum width on mobile */
-  .slideshow-container {
-    width: 100% !important;
-    height: 60vh !important;
-  }
-  
-  /* Force horizontal orientation behavior for all media */
+  /* Force horizontal orientation behavior for all media inside containers */
   .slideshow-container img,
   .slideshow-container video {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
     object-position: center !important;
+  }
+  
+  /* Override any height classes on mobile for slideshow containers */
+  .slideshow-container[class*="h-"] {
+    height: auto !important;
+    aspect-ratio: 16/9 !important;
   }
   
   /* Better touch targets on mobile */
