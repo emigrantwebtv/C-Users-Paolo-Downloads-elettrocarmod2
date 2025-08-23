@@ -196,7 +196,7 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
     <div className={`relative ${className}`}>
       <div className="bg-gray-100 rounded-t-lg overflow-hidden">
         {displayVideos.length === 0 ? (
-          <div className="w-full h-[60vh] bg-gray-200 flex items-center justify-center">
+          <div className="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] bg-gray-200 flex items-center justify-center">
             <div className="text-center">
               <Play className="h-16 w-16 text-gray-400 mx-auto mb-4" />
               <p className="text-gray-500">Nessun video caricato</p>
@@ -204,12 +204,17 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
             </div>
           </div>
         ) : (
-          <div className="w-full h-[60vh] bg-black flex items-center justify-center relative">
+          <div className="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] bg-black flex items-center justify-center relative slideshow-container">
             <video
               key={displayVideos[currentIndex]?.filename}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain sm:object-cover"
+              style={{
+                maxWidth: '100%',
+                maxHeight: '100%'
+              }}
               controls
               playsInline
+              preload="metadata"
             >
               <source src={getVideoUrl(displayVideos[currentIndex]?.filename)} type="video/mp4" />
               Il tuo browser non supporta il tag video.
@@ -224,56 +229,56 @@ export default function VideoSlideshow({ className = "" }: VideoSlideshowProps) 
               variant="ghost"
               size="sm"
               onClick={prevSlide}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 text-white hover:bg-black/70 z-20"
+              className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 bg-black/60 text-white hover:bg-black/80 z-20 touch-manipulation p-2 sm:p-3"
               disabled={displayVideos.length <= 1}
             >
-              <ChevronLeft className="h-4 w-4" />
+              <ChevronLeft className="h-3 w-3 sm:h-4 sm:w-4" />
             </Button>
             <Button
               variant="ghost" 
               size="sm"
               onClick={nextSlide}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 text-white hover:bg-black/70 z-20"
+              className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 bg-black/60 text-white hover:bg-black/80 z-20 touch-manipulation p-2 sm:p-3"
               disabled={displayVideos.length <= 1}
             >
-              <ChevronRight className="h-4 w-4" />
+              <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
             </Button>
           </>
         )}
 
         {/* Control buttons */}
-        <div className="absolute bottom-4 left-4 flex gap-2">
+        <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 flex gap-1 sm:gap-2" style={{background: 'rgba(0,0,0,0.6)', borderRadius: '8px', padding: '4px'}}>
           <Button
             variant="ghost"
             size="sm"
             onClick={togglePlayPause}
-            className="text-white hover:bg-white/20"
+            className="text-white hover:bg-white/20 touch-manipulation p-2 sm:p-3"
           >
-            {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+            {isPlaying ? <Pause className="h-3 w-3 sm:h-4 sm:w-4" /> : <Play className="h-3 w-3 sm:h-4 sm:w-4" />}
           </Button>
           <Button
             variant="ghost"
             size="sm"
             onClick={() => setShowUpload(!showUpload)}
-            className="text-white hover:bg-white/20"
+            className="text-white hover:bg-white/20 touch-manipulation p-2 sm:p-3"
           >
-            <Upload className="h-4 w-4" />
+            <Upload className="h-3 w-3 sm:h-4 sm:w-4" />
           </Button>
           {displayVideos.length > 0 && (
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setShowManage(!showManage)}
-              className="text-white hover:bg-white/20"
+              className="text-white hover:bg-white/20 touch-manipulation p-2 sm:p-3"
             >
-              <Trash2 className="h-4 w-4" />
+              <Trash2 className="h-3 w-3 sm:h-4 sm:w-4" />
             </Button>
           )}
         </div>
 
         {/* Video counter */}
         {displayVideos.length > 0 && (
-          <div className="absolute bottom-4 right-4 text-white px-2 py-1 rounded text-sm">
+          <div className="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 text-white px-2 py-1 rounded text-xs sm:text-sm" style={{background: 'rgba(0,0,0,0.6)', borderRadius: '4px'}}>
             {currentIndex + 1} / {displayVideos.length}
           </div>
         )}

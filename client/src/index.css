@@ -93,3 +93,50 @@ img {
 .page-transition.active {
   opacity: 1;
 }
+
+/* Mobile-optimized media styles */
+@media (max-width: 640px) {
+  /* Ensure images and videos adapt to mobile screens */
+  img, video {
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+  
+  /* Better touch targets on mobile */
+  button, [role="button"], .clickable {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    touch-action: manipulation;
+  }
+  
+  /* Prevent zoom on input focus */
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+}
+
+/* Landscape orientation optimizations */
+@media (max-width: 640px) and (orientation: landscape) {
+  /* Optimize for landscape mobile viewing */
+  .slideshow-container {
+    height: 80vh !important;
+  }
+  
+  img, video {
+    object-fit: cover !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+/* Portrait orientation optimizations */
+@media (max-width: 640px) and (orientation: portrait) {
+  .slideshow-container {
+    height: 50vh !important;
+  }
+  
+  img, video {
+    object-fit: contain !important;
+  }
+}

@@ -262,7 +262,7 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
 
   if (isLoading) {
     return (
-      <div className={`bg-gray-200 animate-pulse rounded-t-lg w-full h-[60vh] ${className}`}>
+      <div className={`bg-gray-200 animate-pulse rounded-t-lg w-full h-[50vh] sm:h-[60vh] md:h-[70vh] ${className}`}>
         <div className="flex items-center justify-center h-full">
           <span className="text-gray-500">Caricamento...</span>
         </div>
@@ -272,20 +272,24 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
 
   if (shuffledPhotos.length === 0) {
     return (
-      <div className={`bg-gray-100 rounded-t-lg flex items-center justify-center w-full h-[60vh] ${className}`}>
+      <div className={`bg-gray-100 rounded-t-lg flex items-center justify-center w-full h-[50vh] sm:h-[60vh] md:h-[70vh] ${className}`}>
         <span className="text-gray-500">Nessuna foto disponibile</span>
       </div>
     );
   }
 
   return (
-    <div className={`relative bg-black rounded-t-lg overflow-hidden w-full h-[60vh] ${className}`}>
+    <div className={`relative bg-black rounded-t-lg overflow-hidden w-full h-[50vh] sm:h-[60vh] md:h-[70vh] slideshow-container ${className}`}>
       {/* Main image */}
       <div className="relative h-full">
         <img
           src={shuffledPhotos[currentIndex].url}
           alt={`Foto ${currentIndex + 1}`}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain sm:object-cover"
+          style={{
+            maxWidth: '100%',
+            maxHeight: '100%'
+          }}
           onError={(e) => {
             // Fallback to default image if upload fails to load
             e.currentTarget.src = defaultPhotos[0];
@@ -296,24 +300,24 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
         <Button
           variant="ghost"
           size="icon"
-          className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white hover:bg-black/70"
+          className="absolute left-1 sm:left-2 top-1/2 transform -translate-y-1/2 bg-black/60 text-white hover:bg-black/80 touch-manipulation p-2 sm:p-3"
           onClick={handlePrevious}
         >
-          <ChevronLeft className="h-6 w-6" />
+          <ChevronLeft className="h-4 w-4 sm:h-6 sm:w-6" />
         </Button>
         
         <Button
           variant="ghost"
           size="icon"
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white hover:bg-black/70"
+          className="absolute right-1 sm:right-2 top-1/2 transform -translate-y-1/2 bg-black/60 text-white hover:bg-black/80 touch-manipulation p-2 sm:p-3"
           onClick={handleNext}
         >
-          <ChevronRight className="h-6 w-6" />
+          <ChevronRight className="h-4 w-4 sm:h-6 sm:w-6" />
         </Button>
       </div>
 
       {/* Controls */}
-      <div className="absolute bottom-0 left-0 right-0 text-white p-3">
+      <div className="absolute bottom-0 left-0 right-0 text-white p-2 sm:p-3" style={{background: 'linear-gradient(transparent, rgba(0,0,0,0.7))'}}>
         <div className="flex items-center justify-between">
           {/* Photo counter */}
           <span className="text-sm">
@@ -326,18 +330,18 @@ export default function PhotoSlideshow({ className = "" }: PhotoSlideshowProps) 
               variant="ghost"
               size="sm"
               onClick={() => setIsPlaying(!isPlaying)}
-              className="text-white hover:bg-white/20"
+              className="text-white hover:bg-white/20 touch-manipulation p-2 sm:p-3"
             >
-              {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+              {isPlaying ? <Pause className="h-3 w-3 sm:h-4 sm:w-4" /> : <Play className="h-3 w-3 sm:h-4 sm:w-4" />}
             </Button>
             
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setShowUpload(true)}
-              className="text-white hover:bg-white/20"
+              className="text-white hover:bg-white/20 touch-manipulation p-2 sm:p-3"
             >
-              <Upload className="h-4 w-4" />
+              <Upload className="h-3 w-3 sm:h-4 sm:w-4" />
             </Button>
 
           </div>
