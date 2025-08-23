@@ -18,6 +18,7 @@ export default function Autolavaggio() {
       transparentSpacing={true}
       imageWidth="w-full"
       imageHeight="h-auto"
+      secondImageHeight="h-auto"
     />
   );
 }
