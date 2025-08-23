@@ -17,6 +17,7 @@ export default function Autolavaggio() {
       videoUrl={videoAutolavaggio}
       transparentSpacing={true}
       imageWidth="w-full"
+      imageHeight="h-auto"
     />
   );
 }
