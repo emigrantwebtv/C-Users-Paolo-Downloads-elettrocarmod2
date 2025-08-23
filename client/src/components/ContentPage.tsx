@@ -83,7 +83,7 @@ export default function ContentPage({
           {(leftImageUrl || rightImageUrl) ? (
             <div className={`flex gap-2 ${reducedTopSpacing ? 'bg-transparent py-0' : transparentSpacing ? 'bg-transparent py-4' : 'bg-gray-50 py-4'}`}>
               {/* Left image */}
-              <div className="flex-1 flex justify-center">
+              <div className="flex-1">
                 {leftImageUrl && (
                   <img
                     src={leftImageUrl}
@@ -94,16 +94,16 @@ export default function ContentPage({
               </div>
               
               {/* Center image */}
-              <div className="flex-1 flex justify-center">
+              <div className="flex-1">
                 <img
                   src={imageUrl}
                   alt={imageAlt}
-                  className={`${imageWidth} ${imageHeight} object-cover rounded-t-xl`}
+                  className="w-full h-[60vh] object-cover rounded-t-xl"
                 />
               </div>
               
               {/* Right image */}
-              <div className="flex-1 flex justify-center">
+              <div className="flex-1">
                 {rightImageUrl && (
                   <img
                     src={rightImageUrl}
@@ -114,11 +114,11 @@ export default function ContentPage({
               </div>
             </div>
           ) : (
-            <div className={`flex justify-center ${reducedTopSpacing ? 'bg-transparent py-0' : transparentSpacing ? 'bg-transparent py-4' : 'bg-gray-50 py-4'}`}>
+            <div className={`${reducedTopSpacing ? 'bg-transparent py-0' : transparentSpacing ? 'bg-transparent py-4' : 'bg-gray-50 py-4'}`}>
               <img
                 src={imageUrl}
                 alt={imageAlt}
-                className={`${imageWidth} ${imageHeight} object-cover rounded-t-xl`}
+                className={`w-full h-[60vh] object-cover rounded-t-xl`}
               />
             </div>
           )}

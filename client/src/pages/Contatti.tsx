@@ -18,7 +18,7 @@ export default function Contatti() {
       <main className="container mx-auto px-4 pt-2">
         <div className="bg-transparent shadow-none rounded-xl overflow-hidden">
           {/* Main image */}
-          <div className="flex justify-center bg-transparent py-4">
+          <div className="bg-transparent py-4">
             <img
               src={contattiPhoto}
               alt="Team ELETTROCAR - Pasquale e Antonio con servizi Magneti Marelli e Checkstar"
