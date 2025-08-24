@@ -22,13 +22,9 @@ export default function FloatingNavigation() {
           const IconComponent = item.icon;
           return (
             <Link key={item.path} href={item.path}>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="p-0 sm:p-3 rounded-full hover:bg-gray-100 transition-colors touch-manipulation"
-              >
+              <div className="p-0 sm:p-3 rounded-full hover:bg-gray-100 transition-colors touch-manipulation cursor-pointer">
                 <IconComponent className="h-3.5 w-3.5 sm:h-5 sm:w-5 text-primary" />
-              </Button>
+              </div>
             </Link>
           );
         })}
