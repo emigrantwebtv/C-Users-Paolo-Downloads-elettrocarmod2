@@ -22,15 +22,15 @@ export default function DoveSiamo() {
             className="w-full h-[60vh] sm:h-[60vh] md:h-[70vh] object-cover rounded-t-xl slideshow-container"
           />
           
-          <div className="p-6">
-            <p className="text-blue-600 leading-relaxed mb-6 text-justify" style={{ hyphens: 'auto', wordBreak: 'normal', overflowWrap: 'break-word' }}>
+          <div className="p-3 sm:p-6">
+            <p className="text-blue-600 leading-relaxed mb-3 sm:mb-6 text-justify" style={{ hyphens: 'auto', wordBreak: 'normal', overflowWrap: 'break-word' }}>
               Ci trovi in una posizione strategica e facilmente raggiungibile. La nostra struttura dispone di ampio parcheggio e si trova vicino ai principali collegamenti stradali. Aperti dal lunedì al sabato con orari flessibili per le tue esigenze.
             </p>
           </div>
         </div>
 
         {/* Mappa Google Maps */}
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mt-6">
+        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mt-3 sm:mt-6">
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6 text-center">
             La Nostra Posizione
           </h2>
