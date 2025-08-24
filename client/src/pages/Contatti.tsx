@@ -18,7 +18,7 @@ export default function Contatti() {
       <main className="container mx-auto px-4 pt-2">
         <div className="bg-transparent shadow-none rounded-xl overflow-hidden">
           {/* Main image */}
-          <div className="bg-transparent py-4">
+          <div className="bg-transparent py-3 sm:py-4">
             <img
               src={contattiPhoto}
               alt="Team ELETTROCAR - Pasquale e Antonio con servizi Magneti Marelli e Checkstar"
@@ -26,14 +26,14 @@ export default function Contatti() {
             />
           </div>
           
-          <div className="p-6">
-            <p className="text-blue-600 leading-relaxed mb-6 text-justify" style={{ hyphens: 'auto', wordBreak: 'normal', overflowWrap: 'break-word' }}>
+          <div className="p-3 sm:p-6">
+            <p className="text-blue-600 leading-relaxed mb-3 sm:mb-6 text-justify" style={{ hyphens: 'auto', wordBreak: 'normal', overflowWrap: 'break-word' }}>
               Contattaci per qualsiasi informazione o per prenotare i nostri servizi. Il nostro team è sempre disponibile per fornire consulenza personalizzata e supporto tecnico. Rispondiamo rapidamente a tutte le richieste.
             </p>
           </div>
           
           {/* Video section - now outside white container, same as photo */}
-          <div className="bg-transparent py-4">
+          <div className="bg-transparent py-3 sm:py-4">
             <video
               className="w-full h-[60vh] sm:h-[60vh] md:h-[70vh] object-cover rounded-t-xl slideshow-container"
               controls
