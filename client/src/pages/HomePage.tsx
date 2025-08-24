@@ -55,7 +55,7 @@ export default function HomePage() {
             title="app realizzata da EmigrantWebTV"
           >
             <img 
-              src="/attached_assets/emigrantwebtv_1756056603518.png" 
+              src="/attached_assets/emigrantwebtv_1756041572153.png" 
               alt="EmigrantWebTV"
               className="h-16 mx-auto"
             />
