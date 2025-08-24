@@ -30,20 +30,23 @@ export default function Contatti() {
             <p className="text-blue-600 leading-relaxed mb-6">
               Contattaci per qualsiasi informazione o per prenotare i nostri servizi. Il nostro team è sempre disponibile per fornire consulenza personalizzata e supporto tecnico. Rispondiamo rapidamente a tutte le richieste.
             </p>
-            
-            {/* Video section */}
-            <div className="rounded-t-lg overflow-hidden">
-              <video
-                className="w-full h-[60vh] sm:h-[60vh] md:h-[70vh] object-cover rounded-t-lg slideshow-container"
-                controls
-                autoPlay
-                playsInline
-              >
-                <source src={contattiVideo} type="video/mp4" />
-                <p className="text-secondary p-4">Il tuo browser non supporta i video HTML5.</p>
-              </video>
-              <p className="text-center text-secondary mt-2 text-sm">Video Duplicazione Chiavi</p>
-            </div>
+          </div>
+          
+          {/* Video section - now outside white container, same as photo */}
+          <div className="bg-transparent py-4">
+            <video
+              className="w-full h-[60vh] sm:h-[60vh] md:h-[70vh] object-cover rounded-t-xl slideshow-container"
+              controls
+              autoPlay
+              playsInline
+            >
+              <source src={contattiVideo} type="video/mp4" />
+              <p className="text-secondary p-4">Il tuo browser non supporta i video HTML5.</p>
+            </video>
+            <p className="text-center text-secondary mt-2 text-sm bg-gray-50 py-2">Video Duplicazione Chiavi</p>
+          </div>
+          
+          <div className="p-6">
 
             {/* EmigrantWebTV Logo */}
             <div className="mt-8 flex justify-center">
