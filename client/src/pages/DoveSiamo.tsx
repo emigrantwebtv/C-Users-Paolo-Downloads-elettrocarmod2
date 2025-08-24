@@ -62,18 +62,16 @@ export default function DoveSiamo() {
         </div>
 
         {/* Video Chi Siamo aggiunto */}
-        <div className="bg-white rounded-xl shadow-lg overflow-hidden mt-6">
-          <div className="p-6">
-            <video
-              controls
-              autoPlay
-              className="w-full h-[60vh] object-cover rounded-t-lg"
-            >
-              <source src="/attached_assets/gomme_callara_1755451856061_1755812997687.mp4" type="video/mp4" />
-              Il tuo browser non supporta il tag video.
-            </video>
-            <p className="text-center text-secondary mt-2 text-sm">Video Promozionale Pneumatici</p>
-          </div>
+        <div className="bg-transparent overflow-hidden mt-6">
+          <video
+            controls
+            autoPlay
+            className="w-full h-[60vh] object-cover rounded-xl slideshow-container"
+          >
+            <source src="/attached_assets/gomme_callara_1755451856061_1755812997687.mp4" type="video/mp4" />
+            Il tuo browser non supporta il tag video.
+          </video>
+          <p className="text-center text-secondary mt-2 text-sm bg-gray-50 py-2">Video Promozionale Pneumatici</p>
         </div>
       </main>
 
