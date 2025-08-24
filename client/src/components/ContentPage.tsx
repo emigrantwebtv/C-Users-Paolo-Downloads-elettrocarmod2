@@ -123,15 +123,15 @@ export default function ContentPage({
             </div>
           )}
           
-          <div className="p-6">
-            <p className="text-blue-600 leading-relaxed mb-6 text-justify" style={{ hyphens: 'auto', wordBreak: 'normal', overflowWrap: 'break-word' }}>
+          <div className="p-3 sm:p-6">
+            <p className="text-blue-600 leading-relaxed mb-3 sm:mb-6 text-justify" style={{ hyphens: 'auto', wordBreak: 'normal', overflowWrap: 'break-word' }}>
               {description}
             </p>
           </div>
           
           {/* Video section - now outside the white container, same as images */}
           {videoUrl && videoTitle ? (
-            <div className={`${reducedTopSpacing ? 'bg-transparent py-0' : transparentSpacing ? 'bg-transparent py-4' : 'bg-gray-50 py-4'}`}>
+            <div className={`${reducedTopSpacing ? 'bg-transparent py-0' : transparentSpacing ? 'bg-transparent py-3 sm:py-4' : 'bg-gray-50 py-3 sm:py-4'}`}>
               <video
                 className="w-full h-[67vh] sm:h-[67vh] md:h-[77vh] object-cover rounded-t-xl slideshow-container"
                 controls
@@ -144,7 +144,7 @@ export default function ContentPage({
               <p className="text-center text-secondary mt-2 text-sm bg-gray-50 py-2">{videoTitle}</p>
             </div>
           ) : videoTitle ? (
-            <div className={`${reducedTopSpacing ? 'bg-transparent py-4' : transparentSpacing ? 'bg-transparent py-4' : 'bg-gray-50 py-4'}`}>
+            <div className={`${reducedTopSpacing ? 'bg-transparent py-3 sm:py-4' : transparentSpacing ? 'bg-transparent py-3 sm:py-4' : 'bg-gray-50 py-3 sm:py-4'}`}>
               <div className="bg-gray-100 rounded-lg p-8 text-center border-2 border-dashed border-gray-300 mx-4">
                 <Play className="h-16 w-16 text-primary mb-4 mx-auto" />
                 <p className="text-secondary">{videoTitle}</p>
