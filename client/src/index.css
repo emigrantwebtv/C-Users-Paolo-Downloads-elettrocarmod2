@@ -123,6 +123,32 @@ img {
   body[data-page="bar"] video {
     width: 100vw !important;
     max-width: 100vw !important;
+    min-width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+  
+  /* Force containers to not constrain width for these pages */
+  body[data-page="chi-siamo"] .container,
+  body[data-page="officina"] .container,
+  body[data-page="bar"] .container {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+  }
+  
+  /* Override any background containers that might constrain width */
+  body[data-page="chi-siamo"] div[class*="bg-"],
+  body[data-page="officina"] div[class*="bg-"],
+  body[data-page="bar"] div[class*="bg-"] {
+    width: 100vw !important;
+    max-width: 100vw !important;
     margin-left: calc(50% - 50vw) !important;
     margin-right: calc(50% - 50vw) !important;
   }
