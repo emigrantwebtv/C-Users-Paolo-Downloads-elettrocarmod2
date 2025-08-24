@@ -27,7 +27,7 @@ export default function Contatti() {
           </div>
           
           <div className="p-6">
-            <p className="text-blue-600 leading-relaxed mb-6 text-justify">
+            <p className="text-blue-600 leading-relaxed mb-6 text-justify" style={{ hyphens: 'auto', wordBreak: 'normal', overflowWrap: 'break-word' }}>
               Contattaci per qualsiasi informazione o per prenotare i nostri servizi. Il nostro team è sempre disponibile per fornire consulenza personalizzata e supporto tecnico. Rispondiamo rapidamente a tutte le richieste.
             </p>
           </div>

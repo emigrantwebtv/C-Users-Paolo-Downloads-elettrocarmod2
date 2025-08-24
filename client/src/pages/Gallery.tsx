@@ -20,7 +20,7 @@ export default function Gallery() {
           <PhotoSlideshow className="w-full" />
           
           <div className="p-6">
-            <p className="text-blue-600 leading-relaxed mb-6 text-justify">
+            <p className="text-blue-600 leading-relaxed mb-6 text-justify" style={{ hyphens: 'auto', wordBreak: 'normal', overflowWrap: 'break-word' }}>
               Sfoglia la nostra gallery per vedere i risultati dei nostri servizi. Dalle trasformazioni più spettacolari alle manutenzioni di routine, ogni immagine racconta la storia della qualità e dell'attenzione ai dettagli che ci contraddistingue.
             </p>
           </div>

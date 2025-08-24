@@ -124,7 +124,7 @@ export default function ContentPage({
           )}
           
           <div className="p-6">
-            <p className="text-blue-600 leading-relaxed mb-6 text-justify">
+            <p className="text-blue-600 leading-relaxed mb-6 text-justify" style={{ hyphens: 'auto', wordBreak: 'normal', overflowWrap: 'break-word' }}>
               {description}
             </p>
           </div>
