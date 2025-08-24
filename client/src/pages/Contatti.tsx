@@ -60,7 +60,7 @@ export default function Contatti() {
             </div>
 
             {/* QR Code per l'app */}
-            <div className="mt-8 flex flex-col items-center">
+            <div className="mt-8 mb-8 flex flex-col items-center">
               <img
                 src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://h1.nu/elettrocar"
                 alt="QR Code per scaricare l'app Elettrocar"
