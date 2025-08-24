@@ -64,7 +64,7 @@ export default function DoveSiamo() {
         {/* Video Chi Siamo aggiunto */}
         <div className="bg-transparent py-4">
           <video
-            className="w-full h-[65vh] sm:h-[65vh] md:h-[75vh] object-cover rounded-t-xl slideshow-container"
+            className="w-full h-[66vh] sm:h-[66vh] md:h-[76vh] object-cover rounded-t-xl slideshow-container"
             controls
             autoPlay
             playsInline
