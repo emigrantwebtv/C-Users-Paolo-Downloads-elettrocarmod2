@@ -14,6 +14,8 @@ export default function Ebikes() {
       videoUrl={videoEbikes}
       transparentSpacing={true}
       imageHeight="h-auto"
+      secondImageHeight="h-auto"
+      imageWidth="max-w-full"
     />
   );
 }
