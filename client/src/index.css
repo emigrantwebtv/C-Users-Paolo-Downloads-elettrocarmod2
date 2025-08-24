@@ -96,8 +96,10 @@ img {
 
 /* Mobile-optimized media styles */
 @media (max-width: 640px) {
-  /* Force horizontal aspect ratio for all slideshow containers on mobile */
-  .slideshow-container {
+  /* Force horizontal aspect ratio for all slideshow containers on mobile - same as CHI SIAMO photos */
+  .slideshow-container,
+  .slideshow-container > div,
+  div.slideshow-container {
     width: 100% !important;
     aspect-ratio: 16/9 !important;
     height: auto !important;
@@ -111,9 +113,11 @@ img {
     object-position: center !important;
   }
   
-  /* Force horizontal orientation behavior for all media inside containers */
+  /* Force horizontal orientation behavior for all media inside containers - exact same as CHI SIAMO */
   .slideshow-container img,
-  .slideshow-container video {
+  .slideshow-container video,
+  div.slideshow-container img,
+  div.slideshow-container video {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
@@ -121,9 +125,19 @@ img {
   }
   
   /* Override any height classes on mobile for slideshow containers */
-  .slideshow-container[class*="h-"] {
+  .slideshow-container[class*="h-"],
+  div.slideshow-container[class*="h-"],
+  .slideshow-container > div[class*="h-"] {
     height: auto !important;
     aspect-ratio: 16/9 !important;
+  }
+  
+  /* Specific override for video slideshow containers */
+  .slideshow-container.relative,
+  div.slideshow-container.relative {
+    width: 100% !important;
+    aspect-ratio: 16/9 !important;
+    height: auto !important;
   }
   
   /* Better touch targets on mobile */
