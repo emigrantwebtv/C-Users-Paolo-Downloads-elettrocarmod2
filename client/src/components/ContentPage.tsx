@@ -123,31 +123,33 @@ export default function ContentPage({
             </div>
           )}
           
+          {/* Video section - now outside the white container, same as images */}
+          {videoUrl && videoTitle ? (
+            <div className={`${reducedTopSpacing ? 'bg-transparent py-0' : transparentSpacing ? 'bg-transparent py-4' : 'bg-gray-50 py-4'}`}>
+              <video
+                className="w-full h-[60vh] sm:h-[60vh] md:h-[70vh] object-cover rounded-t-xl slideshow-container"
+                controls
+                autoPlay
+                playsInline
+              >
+                <source src={videoUrl} type="video/mp4" />
+                <p className="text-secondary p-4">Il tuo browser non supporta i video HTML5.</p>
+              </video>
+              <p className="text-center text-secondary mt-2 text-sm bg-gray-50 py-2">{videoTitle}</p>
+            </div>
+          ) : videoTitle ? (
+            <div className={`${reducedTopSpacing ? 'bg-transparent py-4' : transparentSpacing ? 'bg-transparent py-4' : 'bg-gray-50 py-4'}`}>
+              <div className="bg-gray-100 rounded-lg p-8 text-center border-2 border-dashed border-gray-300 mx-4">
+                <Play className="h-16 w-16 text-primary mb-4 mx-auto" />
+                <p className="text-secondary">{videoTitle}</p>
+              </div>
+            </div>
+          ) : null}
+          
           <div className="p-6">
             <p className="text-blue-600 leading-relaxed mb-6">
               {description}
             </p>
-            
-            {/* Video section */}
-            {videoUrl && videoTitle ? (
-              <div className="rounded-t-lg overflow-hidden">
-                <video
-                  className="w-full h-[60vh] sm:h-[60vh] md:h-[70vh] object-cover rounded-t-lg slideshow-container"
-                  controls
-                  autoPlay
-                  playsInline
-                >
-                  <source src={videoUrl} type="video/mp4" />
-                  <p className="text-secondary p-4">Il tuo browser non supporta i video HTML5.</p>
-                </video>
-                <p className="text-center text-secondary mt-2 text-sm">{videoTitle}</p>
-              </div>
-            ) : videoTitle ? (
-              <div className="bg-gray-100 rounded-lg p-8 text-center border-2 border-dashed border-gray-300">
-                <Play className="h-16 w-16 text-primary mb-4 mx-auto" />
-                <p className="text-secondary">{videoTitle}</p>
-              </div>
-            ) : null}
           </div>
         </div>
       </main>
