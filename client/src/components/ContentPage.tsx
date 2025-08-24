@@ -123,6 +123,12 @@ export default function ContentPage({
             </div>
           )}
           
+          <div className="p-6">
+            <p className="text-blue-600 leading-relaxed mb-6">
+              {description}
+            </p>
+          </div>
+          
           {/* Video section - now outside the white container, same as images */}
           {videoUrl && videoTitle ? (
             <div className={`${reducedTopSpacing ? 'bg-transparent py-0' : transparentSpacing ? 'bg-transparent py-4' : 'bg-gray-50 py-4'}`}>
@@ -145,12 +151,6 @@ export default function ContentPage({
               </div>
             </div>
           ) : null}
-          
-          <div className="p-6">
-            <p className="text-blue-600 leading-relaxed mb-6">
-              {description}
-            </p>
-          </div>
         </div>
       </main>
 
