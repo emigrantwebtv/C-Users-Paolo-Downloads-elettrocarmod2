@@ -12,6 +12,7 @@ export default function Officina() {
       videoTitle="Video Tour Officina"
       videoUrl={videoOfficina}
       transparentSpacing={true}
+      pageId="officina"
     />
   );
 }

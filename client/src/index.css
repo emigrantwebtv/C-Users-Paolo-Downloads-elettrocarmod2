@@ -112,18 +112,31 @@ img {
   opacity: 1;
 }
 
-/* Mobile landscape: align content containers with navigation width */
+/* Mobile landscape: specific pages with full screen width for media */
 @media (max-width: 768px) and (orientation: landscape) {
-  /* Target slideshow containers and media content in all pages except HOME */
-  body:not([class*="home"]) .slideshow-container,
-  body:not([class*="home"]) .slideshow-container > div,
-  body:not([class*="home"]) div.slideshow-container,
-  body:not([class*="home"]) img[class*="rounded-t-xl"],
-  body:not([class*="home"]) video[class*="rounded-t-xl"],
-  body:not([class*="home"]) div[class*="bg-gray-50"] img,
-  body:not([class*="home"]) div[class*="bg-transparent"] img,
-  body:not([class*="home"]) div[class*="bg-gray-50"] video,
-  body:not([class*="home"]) div[class*="bg-transparent"] video {
+  /* CHI SIAMO, OFFICINA, BAR: full screen width for photos and videos */
+  body[data-page="chi-siamo"] img,
+  body[data-page="chi-siamo"] video,
+  body[data-page="officina"] img,
+  body[data-page="officina"] video,
+  body[data-page="bar"] img,
+  body[data-page="bar"] video {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+  }
+  
+  /* Other pages: align content containers with navigation width */
+  body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) .slideshow-container,
+  body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) .slideshow-container > div,
+  body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) div.slideshow-container,
+  body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) img[class*="rounded-t-xl"],
+  body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) video[class*="rounded-t-xl"],
+  body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) div[class*="bg-gray-50"] img,
+  body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) div[class*="bg-transparent"] img,
+  body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) div[class*="bg-gray-50"] video,
+  body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) div[class*="bg-transparent"] video {
     /* Match navigation container width - accounting for container padding */
     width: calc(100% - 2rem) !important;
     max-width: calc(100% - 2rem) !important;

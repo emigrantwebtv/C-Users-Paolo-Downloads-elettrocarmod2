@@ -12,6 +12,7 @@ export default function Bar() {
       videoUrl={barVideo}
       videoTitle="Video Tour Bar"
       transparentSpacing={true}
+      pageId="bar"
     />
   );
 }
