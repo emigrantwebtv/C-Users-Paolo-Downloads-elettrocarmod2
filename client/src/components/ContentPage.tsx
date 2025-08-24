@@ -98,7 +98,7 @@ export default function ContentPage({
                 <img
                   src={imageUrl}
                   alt={imageAlt}
-                  className="w-full h-[60vh] sm:h-[60vh] md:h-[70vh] object-cover rounded-t-xl slideshow-container"
+                  className={`w-full ${imageHeight} object-cover rounded-t-xl slideshow-container`}
                 />
               </div>
               
@@ -118,7 +118,7 @@ export default function ContentPage({
               <img
                 src={imageUrl}
                 alt={imageAlt}
-                className={`w-full h-[60vh] sm:h-[60vh] md:h-[70vh] object-cover rounded-t-xl slideshow-container`}
+                className={`w-full ${imageHeight} object-cover rounded-t-xl slideshow-container`}
               />
             </div>
           )}
