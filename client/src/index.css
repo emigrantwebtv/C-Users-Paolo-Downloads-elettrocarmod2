@@ -6,7 +6,17 @@
 @media (max-width: 640px) and (orientation: portrait) {
   .navigation-container {
     margin-left: 0 !important;
-    margin-right: 1rem !important;
+    margin-right: 0 !important;
+  }
+  
+  /* Reduce spacing between navigation icons for better fit */
+  .navigation-container .flex {
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+  }
+  
+  .navigation-container button {
+    padding: 0.5rem !important;
   }
 }
 
