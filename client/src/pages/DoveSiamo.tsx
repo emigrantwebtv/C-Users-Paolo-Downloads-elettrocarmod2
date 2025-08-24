@@ -23,7 +23,7 @@ export default function DoveSiamo() {
           />
           
           <div className="p-6">
-            <p className="text-blue-600 leading-relaxed mb-6">
+            <p className="text-blue-600 leading-relaxed mb-6 text-justify">
               Ci trovi in una posizione strategica e facilmente raggiungibile. La nostra struttura dispone di ampio parcheggio e si trova vicino ai principali collegamenti stradali. Aperti dal lunedì al sabato con orari flessibili per le tue esigenze.
             </p>
           </div>

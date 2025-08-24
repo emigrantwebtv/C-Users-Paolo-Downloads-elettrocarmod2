@@ -124,7 +124,7 @@ export default function ContentPage({
           )}
           
           <div className="p-6">
-            <p className="text-blue-600 leading-relaxed mb-6">
+            <p className="text-blue-600 leading-relaxed mb-6 text-justify">
               {description}
             </p>
           </div>
