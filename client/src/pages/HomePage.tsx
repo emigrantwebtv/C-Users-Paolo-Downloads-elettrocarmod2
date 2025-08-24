@@ -45,6 +45,23 @@ export default function HomePage() {
           })}
         </div>
       </main>
+      
+      {/* Footer Logo */}
+      <footer className="pb-8">
+        <div className="container mx-auto px-4 text-center">
+          <div 
+            className="inline-block cursor-pointer hover:opacity-80 transition-opacity duration-300"
+            onClick={() => window.open('http://www.emigrantwebtv.com', '_blank')}
+            title="app realizzata da EmigrantWebTV"
+          >
+            <img 
+              src="/attached_assets/emigrantwebtv_1756041572153.png" 
+              alt="EmigrantWebTV"
+              className="h-16 mx-auto"
+            />
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
