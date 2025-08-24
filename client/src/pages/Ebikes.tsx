@@ -13,6 +13,7 @@ export default function Ebikes() {
       videoTitle="Video Gamma E-Bikes"
       videoUrl={videoEbikes}
       transparentSpacing={true}
+      imageHeight="h-auto"
     />
   );
 }
