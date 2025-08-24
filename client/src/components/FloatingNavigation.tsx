@@ -23,7 +23,7 @@ export default function FloatingNavigation() {
           return (
             <Link key={item.path} href={item.path}>
               <div className="p-1 sm:p-3 rounded-full hover:bg-gray-100 transition-colors touch-manipulation cursor-pointer">
-                <IconComponent className="h-5 w-5 sm:h-5 sm:w-5 text-primary" />
+                <IconComponent className="h-4.5 w-4.5 sm:h-5 sm:w-5 text-primary" />
               </div>
             </Link>
           );
