@@ -66,7 +66,7 @@ export default function DoveSiamo() {
           <video
             controls
             autoPlay
-            className="w-full h-[60vh] object-cover rounded-xl slideshow-container"
+            className="w-full h-[60vh] object-cover rounded-t-xl slideshow-container"
           >
             <source src="/attached_assets/gomme_callara_1755451856061_1755812997687.mp4" type="video/mp4" />
             Il tuo browser non supporta il tag video.
