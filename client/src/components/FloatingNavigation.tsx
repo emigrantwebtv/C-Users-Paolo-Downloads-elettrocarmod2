@@ -17,7 +17,7 @@ const navigationItems = [
 export default function FloatingNavigation() {
   return (
     <div className="bg-white rounded-full shadow-2xl border border-gray-200 mx-0 sm:mx-4 navigation-container">
-      <div className="flex justify-start items-center py-2 px-1 gap-0 sm:px-2 sm:justify-around">
+      <div className="flex justify-between items-center py-2 px-1 gap-0 sm:px-2 sm:justify-around">
         {navigationItems.map((item) => {
           const IconComponent = item.icon;
           return (
