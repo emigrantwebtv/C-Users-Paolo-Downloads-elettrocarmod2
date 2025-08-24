@@ -19,7 +19,7 @@ export default function DoveSiamo() {
           <img
             src="/attached_assets/dove_siamo_1755168166832.jpg"
             alt="Sede ELETTROCAR"
-            className="w-full h-[60vh] object-cover"
+            className="w-full h-[60vh] sm:h-[60vh] md:h-[70vh] object-cover rounded-t-xl slideshow-container"
           />
           
           <div className="p-6">
