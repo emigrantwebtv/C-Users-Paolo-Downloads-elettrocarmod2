@@ -25,7 +25,7 @@ export default function FloatingNavigation() {
               <Button
                 variant="ghost"
                 size="sm"
-                className="p-1 sm:p-3 rounded-full hover:bg-gray-100 transition-colors touch-manipulation"
+                className="p-0 sm:p-3 rounded-full hover:bg-gray-100 transition-colors touch-manipulation"
               >
                 <IconComponent className="h-3.5 w-3.5 sm:h-5 sm:w-5 text-primary" />
               </Button>
