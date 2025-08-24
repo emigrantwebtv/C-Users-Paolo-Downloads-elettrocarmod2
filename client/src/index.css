@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom navigation spacing for smartphone portrait mode */
+@media (max-width: 640px) and (orientation: portrait) {
+  .navigation-container {
+    margin-left: 0 !important;
+    margin-right: 1rem !important;
+  }
+}
+
 :root {
   --background: hsl(0, 0%, 100%);
   --foreground: hsl(20, 14.3%, 4.1%);
