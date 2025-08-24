@@ -112,6 +112,32 @@ img {
   opacity: 1;
 }
 
+/* Mobile landscape: align content containers with navigation width */
+@media (max-width: 768px) and (orientation: landscape) {
+  /* Target slideshow containers and media content in all pages except HOME */
+  body:not([class*="home"]) .slideshow-container,
+  body:not([class*="home"]) .slideshow-container > div,
+  body:not([class*="home"]) div.slideshow-container,
+  body:not([class*="home"]) img[class*="rounded-t-xl"],
+  body:not([class*="home"]) video[class*="rounded-t-xl"],
+  body:not([class*="home"]) div[class*="bg-gray-50"] img,
+  body:not([class*="home"]) div[class*="bg-transparent"] img,
+  body:not([class*="home"]) div[class*="bg-gray-50"] video,
+  body:not([class*="home"]) div[class*="bg-transparent"] video {
+    /* Match navigation container width - accounting for container padding */
+    width: calc(100% - 2rem) !important;
+    max-width: calc(100% - 2rem) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  /* Ensure proper container alignment */
+  body:not([class*="home"]) .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
 /* Mobile-optimized media styles */
 @media (max-width: 640px) {
   /* Force horizontal aspect ratio for all slideshow containers on mobile - same as CHI SIAMO photos */
