@@ -133,7 +133,7 @@ export default function ContentPage({
           {videoUrl && videoTitle ? (
             <div className={`${reducedTopSpacing ? 'bg-transparent py-0' : transparentSpacing ? 'bg-transparent py-4' : 'bg-gray-50 py-4'}`}>
               <video
-                className="w-full h-[60vh] sm:h-[60vh] md:h-[70vh] object-cover rounded-t-xl slideshow-container"
+                className="w-full h-[65vh] sm:h-[65vh] md:h-[75vh] object-cover rounded-t-xl slideshow-container"
                 controls
                 autoPlay
                 playsInline
