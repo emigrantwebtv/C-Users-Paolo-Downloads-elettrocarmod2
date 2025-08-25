@@ -112,11 +112,18 @@ img {
   opacity: 1;
 }
 
-/* Mobile landscape: specific pages with full screen width for media */
+/* Mobile landscape: specific pages styling */
 @media (max-width: 768px) and (orientation: landscape) {
-  /* CHI SIAMO, OFFICINA, BAR: full screen width for photos and videos only */
+  /* CHI SIAMO: photos and videos align with navigation container width */
   body[data-page="chi-siamo"] img:not(.navigation-container *),
-  body[data-page="chi-siamo"] video:not(.navigation-container *),
+  body[data-page="chi-siamo"] video:not(.navigation-container *) {
+    width: calc(100% - 2rem) !important;
+    max-width: calc(100% - 2rem) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  /* OFFICINA, BAR: full screen width for photos and videos */
   body[data-page="officina"] img:not(.navigation-container *),
   body[data-page="officina"] video:not(.navigation-container *),
   body[data-page="bar"] img:not(.navigation-container *),
@@ -129,6 +136,19 @@ img {
     left: 50% !important;
     transform: translateX(-50%) !important;
   }
+  
+  /* CONTATTI: restore original dimensions for barcode and emigrantwebtv logo */
+  body[data-page="contatti"] img[src*="qrserver.com"],
+  body[data-page="contatti"] img[src*="logoemigrant"] {
+    width: auto !important;
+    max-width: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+  }
+}
   
   /* Other pages: align content containers with navigation width */
   body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) .slideshow-container,
