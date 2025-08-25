@@ -149,10 +149,18 @@ img {
     transform: none !important;
   }
   
+  /* PhotoSlideshow and VideoSlideshow: 95% width and 16:9 aspect ratio for landscape mobile (excluding home page) */
+  body:not([class*="home"]) .slideshow-container,
+  body:not([class*="home"]) div.slideshow-container {
+    width: 95% !important;
+    max-width: 95% !important;
+    aspect-ratio: 16/9 !important;
+    height: auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
   /* Other pages: align content containers with navigation width */
-  body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) .slideshow-container,
-  body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) .slideshow-container > div,
-  body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) div.slideshow-container,
   body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) img[class*="rounded-t-xl"],
   body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) video[class*="rounded-t-xl"],
   body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) div[class*="bg-gray-50"] img,
