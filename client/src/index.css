@@ -154,6 +154,16 @@ img {
     margin-right: auto !important;
   }
   
+  /* GALLERY slideshow contents: align left within containers */
+  body[data-page="gallery"] .slideshow-container img,
+  body[data-page="gallery"] .slideshow-container video,
+  body[data-page="gallery"] div.slideshow-container img,
+  body[data-page="gallery"] div.slideshow-container video {
+    object-position: left !important;
+    margin-left: 0 !important;
+    margin-right: auto !important;
+  }
+  
   /* AUTOLAVAGGIO: reduce height of main photo to 80% */
   body[data-page="autolavaggio"] img[src*="foto_autolavaggio"] {
     height: 80% !important;
