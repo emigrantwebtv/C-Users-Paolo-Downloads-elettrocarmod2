@@ -149,11 +149,11 @@ img {
     transform: none !important;
   }
   
-  /* PhotoSlideshow and VideoSlideshow: 95% width and 16:9 aspect ratio for landscape mobile (excluding home page) */
+  /* PhotoSlideshow and VideoSlideshow: 120% width and 16:9 aspect ratio for landscape mobile (excluding home page) */
   body:not([class*="home"]) .slideshow-container,
   body:not([class*="home"]) div.slideshow-container {
-    width: 95% !important;
-    max-width: 95% !important;
+    width: 120% !important;
+    max-width: 120% !important;
     aspect-ratio: 16/9 !important;
     height: auto !important;
     margin-left: auto !important;
