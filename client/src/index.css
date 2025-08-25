@@ -123,7 +123,7 @@ img {
     margin-right: auto !important;
   }
   
-  /* OFFICINA, BAR: full screen width for photos and videos */
+  /* OFFICINA, BAR: 100% screen width for photos and videos with 16:9 aspect ratio */
   body[data-page="officina"] img:not(.navigation-container *),
   body[data-page="officina"] video:not(.navigation-container *),
   body[data-page="bar"] img:not(.navigation-container *),
@@ -135,6 +135,7 @@ img {
     position: relative !important;
     left: 50% !important;
     transform: translateX(-50%) !important;
+    aspect-ratio: 16/9 !important;
   }
   
   /* CONTATTI: restore original dimensions for barcode and emigrantwebtv logo */
