@@ -123,11 +123,18 @@ img {
     margin-right: auto !important;
   }
   
-  /* OFFICINA, BAR, DOVE SIAMO: photos and videos 100% natural size, original proportions, not responsive */
+  /* OFFICINA, BAR: photos and videos align with navigation container width - same as CHI SIAMO */
   body[data-page="officina"] img:not(.navigation-container *),
   body[data-page="officina"] video:not(.navigation-container *),
   body[data-page="bar"] img:not(.navigation-container *),
-  body[data-page="bar"] video:not(.navigation-container *),
+  body[data-page="bar"] video:not(.navigation-container *) {
+    width: calc(100% - 2rem) !important;
+    max-width: calc(100% - 2rem) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  /* DOVE SIAMO: photos and videos 100% natural size, original proportions, not responsive */
   body[data-page="dove-siamo"] img:not(.navigation-container *),
   body[data-page="dove-siamo"] video:not(.navigation-container *) {
     width: 100% !important;
