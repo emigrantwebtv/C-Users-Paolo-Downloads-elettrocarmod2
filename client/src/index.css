@@ -166,6 +166,13 @@ img {
     margin-right: auto !important;
   }
   
+  /* GALLERY slideshow containers: increase vertical dimensions by 30% in landscape */
+  body[data-page="gallery"] .slideshow-container,
+  body[data-page="gallery"] div.slideshow-container {
+    height: 78vh !important; /* 60vh * 1.3 = 78vh */
+    max-height: 78vh !important;
+  }
+  
   /* Other pages: align content containers with navigation width */
   body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) img[class*="rounded-t-xl"],
   body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) video[class*="rounded-t-xl"],
