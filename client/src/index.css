@@ -148,7 +148,6 @@ img {
     left: auto !important;
     transform: none !important;
   }
-}
   
   /* Other pages: align content containers with navigation width */
   body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) .slideshow-container,
