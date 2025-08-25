@@ -136,44 +136,6 @@ img {
     margin-right: auto !important;
   }
   
-  /* GALLERY: photos and videos 20% smaller than CHI SIAMO */
-  body[data-page="gallery"] img:not(.navigation-container *),
-  body[data-page="gallery"] video:not(.navigation-container *) {
-    width: calc(80% - 1.6rem) !important;
-    max-width: calc(80% - 1.6rem) !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-  
-  /* GALLERY slideshow containers: 20% smaller than CHI SIAMO */
-  body[data-page="gallery"] .slideshow-container,
-  body[data-page="gallery"] div.slideshow-container {
-    width: calc(80% - 1.6rem) !important;
-    max-width: calc(80% - 1.6rem) !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-  
-  /* GALLERY slideshow contents: alternate left and right alignment within containers */
-  /* First slideshow: align left */
-  body[data-page="gallery"] .slideshow-container:first-of-type img,
-  body[data-page="gallery"] .slideshow-container:first-of-type video,
-  body[data-page="gallery"] div.slideshow-container:first-of-type img,
-  body[data-page="gallery"] div.slideshow-container:first-of-type video {
-    object-position: left !important;
-    margin-left: 0 !important;
-    margin-right: auto !important;
-  }
-  
-  /* Second slideshow: align right */
-  body[data-page="gallery"] .slideshow-container:last-of-type img,
-  body[data-page="gallery"] .slideshow-container:last-of-type video,
-  body[data-page="gallery"] div.slideshow-container:last-of-type img,
-  body[data-page="gallery"] div.slideshow-container:last-of-type video {
-    object-position: right !important;
-    margin-left: auto !important;
-    margin-right: 0 !important;
-  }
   
   /* AUTOLAVAGGIO: reduce height of main photo to 80% */
   body[data-page="autolavaggio"] img[src*="foto_autolavaggio"] {
