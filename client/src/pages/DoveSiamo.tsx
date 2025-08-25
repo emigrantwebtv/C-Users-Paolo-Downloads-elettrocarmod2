@@ -1,7 +1,16 @@
 import FloatingNavigation from "@/components/FloatingNavigation";
 import { Play } from "lucide-react";
+import { useEffect } from "react";
 
 export default function DoveSiamo() {
+  // Set page identifier on body for CSS targeting
+  useEffect(() => {
+    document.body.setAttribute('data-page', 'dove-siamo');
+    return () => {
+      document.body.removeAttribute('data-page');
+    };
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Header */}

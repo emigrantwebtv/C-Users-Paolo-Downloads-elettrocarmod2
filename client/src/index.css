@@ -123,23 +123,26 @@ img {
     margin-right: auto !important;
   }
   
-  /* OFFICINA, BAR: 100% screen width for photos, videos and containers with 16:9 aspect ratio */
+  /* OFFICINA, BAR, DOVE SIAMO: photos and videos out of containers, 100% natural width, original proportions, not responsive */
   body[data-page="officina"] img:not(.navigation-container *),
   body[data-page="officina"] video:not(.navigation-container *),
   body[data-page="bar"] img:not(.navigation-container *),
   body[data-page="bar"] video:not(.navigation-container *),
-  body[data-page="officina"] .slideshow-container,
-  body[data-page="bar"] .slideshow-container,
-  body[data-page="officina"] div.slideshow-container,
-  body[data-page="bar"] div.slideshow-container {
-    width: 100vw !important;
-    max-width: 100vw !important;
-    margin-left: calc(50% - 50vw) !important;
-    margin-right: calc(50% - 50vw) !important;
-    position: relative !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    aspect-ratio: 16/9 !important;
+  body[data-page="dove-siamo"] img:not(.navigation-container *),
+  body[data-page="dove-siamo"] video:not(.navigation-container *) {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    max-height: none !important;
+    object-fit: none !important;
+    object-position: initial !important;
+    aspect-ratio: initial !important;
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    display: block !important;
   }
   
   /* AUTOLAVAGGIO: reduce height of main photo to 80% */
