@@ -155,9 +155,9 @@ img {
     transform: none !important;
   }
   
-  /* PhotoSlideshow and VideoSlideshow: 120% width and 16:9 aspect ratio for landscape mobile (excluding home page) */
-  body:not([class*="home"]) .slideshow-container,
-  body:not([class*="home"]) div.slideshow-container {
+  /* PhotoSlideshow and VideoSlideshow: 120% width and 16:9 aspect ratio for landscape mobile (excluding home page and gallery) */
+  body:not([class*="home"]):not([data-page="gallery"]) .slideshow-container,
+  body:not([class*="home"]):not([data-page="gallery"]) div.slideshow-container {
     width: 120% !important;
     max-width: 120% !important;
     aspect-ratio: 16/9 !important;
