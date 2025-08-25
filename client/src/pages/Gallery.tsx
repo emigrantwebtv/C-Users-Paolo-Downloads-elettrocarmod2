@@ -1,8 +1,17 @@
+import { useEffect } from "react";
 import FloatingNavigation from "@/components/FloatingNavigation";
 import PhotoSlideshow from "@/components/PhotoSlideshow";
 import VideoSlideshow from "@/components/VideoSlideshow";
 
 export default function Gallery() {
+  // Set page identifier on body for CSS targeting
+  useEffect(() => {
+    document.body.setAttribute('data-page', 'gallery');
+    return () => {
+      document.body.removeAttribute('data-page');
+    };
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Header */}

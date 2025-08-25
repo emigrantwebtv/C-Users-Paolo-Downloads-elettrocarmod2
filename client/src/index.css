@@ -138,6 +138,15 @@ img {
     margin-right: auto !important;
   }
   
+  /* GALLERY slideshow containers: align with navigation container width - same as CHI SIAMO */
+  body[data-page="gallery"] .slideshow-container,
+  body[data-page="gallery"] div.slideshow-container {
+    width: calc(100% - 2rem) !important;
+    max-width: calc(100% - 2rem) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
   /* AUTOLAVAGGIO: reduce height of main photo to 80% */
   body[data-page="autolavaggio"] img[src*="foto_autolavaggio"] {
     height: 80% !important;
