@@ -1,9 +1,18 @@
 import ContentPage from "@/components/ContentPage";
 import FloatingNavigation from "@/components/FloatingNavigation";
+import { useEffect } from "react";
 import contattiVideo from "@assets/Video Duplicazione Chiavi_1755684979130_1755772415949.mp4";
 import contattiPhoto from "@assets/foto contatti_1755717576894_1755772885332.jpg";
 
 export default function Contatti() {
+  // Set page identifier on body for CSS targeting
+  useEffect(() => {
+    document.body.setAttribute('data-page', 'contatti');
+    return () => {
+      document.body.removeAttribute('data-page');
+    };
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Header */}

@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import FloatingNavigation from "@/components/FloatingNavigation";
 import { Play } from "lucide-react";
 
@@ -22,6 +22,7 @@ interface ContentPageProps {
   imageHeight?: string;
   secondImageHeight?: string;
   imageWidth?: string;
+  pageId?: string;
 }
 
 export default function ContentPage({
@@ -44,7 +45,19 @@ export default function ContentPage({
   imageHeight = "h-auto",
   secondImageHeight = "h-auto",
   imageWidth = "max-w-full",
+  pageId,
 }: ContentPageProps) {
+  
+  // Set page identifier on body for CSS targeting
+  useEffect(() => {
+    if (pageId) {
+      document.body.setAttribute('data-page', pageId);
+      return () => {
+        document.body.removeAttribute('data-page');
+      };
+    }
+  }, [pageId]);
+  
   return (
     <div className="min-h-screen">
       {/* Header */}

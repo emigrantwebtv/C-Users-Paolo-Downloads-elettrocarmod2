@@ -93,3 +93,149 @@ img {
 .page-transition.active {
   opacity: 1;
 }
+
+/* Custom navigation spacing for smartphone portrait mode */
+@media (max-width: 640px) and (orientation: portrait) {
+  .navigation-container {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  
+  /* Reduce spacing between navigation icons for better fit */
+  .navigation-container .flex {
+    padding-left: 0.25rem !important;
+    padding-right: 0.25rem !important;
+  }
+  
+  .navigation-container button {
+    padding: 0.5rem !important;
+  }
+}
+
+/* Mobile landscape: specific pages styling */
+@media (max-width: 768px) and (orientation: landscape) {
+  /* CHI SIAMO: photos and videos align with navigation container width */
+  body[data-page="chi-siamo"] img:not(.navigation-container *),
+  body[data-page="chi-siamo"] video:not(.navigation-container *) {
+    width: calc(100% - 2rem) !important;
+    max-width: calc(100% - 2rem) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  /* OFFICINA, BAR: full screen width for photos and videos */
+  body[data-page="officina"] img:not(.navigation-container *),
+  body[data-page="officina"] video:not(.navigation-container *),
+  body[data-page="bar"] img:not(.navigation-container *),
+  body[data-page="bar"] video:not(.navigation-container *) {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+    position: relative !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+  
+  /* CONTATTI: restore original dimensions for barcode and emigrantwebtv logo */
+  body[data-page="contatti"] img[src*="qrserver.com"],
+  body[data-page="contatti"] img[src*="logoemigrant"] {
+    width: auto !important;
+    max-width: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    position: static !important;
+    left: auto !important;
+    transform: none !important;
+  }
+  
+  /* Other pages: align content containers with navigation width */
+  body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) .slideshow-container,
+  body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) .slideshow-container > div,
+  body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) div.slideshow-container,
+  body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) img[class*="rounded-t-xl"],
+  body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) video[class*="rounded-t-xl"],
+  body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) div[class*="bg-gray-50"] img,
+  body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) div[class*="bg-transparent"] img,
+  body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) div[class*="bg-gray-50"] video,
+  body:not([data-page="chi-siamo"]):not([data-page="officina"]):not([data-page="bar"]):not([class*="home"]) div[class*="bg-transparent"] video {
+    /* Match navigation container width - accounting for container padding */
+    width: calc(100% - 2rem) !important;
+    max-width: calc(100% - 2rem) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  /* Ensure proper container alignment */
+  body:not([class*="home"]) .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* Mobile-optimized media styles */
+@media (max-width: 640px) {
+  /* Force horizontal aspect ratio for all slideshow containers on mobile - same as CHI SIAMO photos */
+  .slideshow-container,
+  .slideshow-container > div,
+  div.slideshow-container {
+    width: 100% !important;
+    aspect-ratio: 16/9 !important;
+    height: auto !important;
+  }
+  
+  /* Force full width adaptation for all media content on smartphones */
+  img, video {
+    width: 100% !important;
+    max-width: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+  
+  /* Force horizontal orientation behavior for all media inside containers - exact same as CHI SIAMO */
+  .slideshow-container img,
+  .slideshow-container video,
+  div.slideshow-container img,
+  div.slideshow-container video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+  }
+  
+  /* Override any height classes on mobile for slideshow containers */
+  .slideshow-container[class*="h-"],
+  div.slideshow-container[class*="h-"],
+  .slideshow-container > div[class*="h-"] {
+    height: auto !important;
+    aspect-ratio: 16/9 !important;
+  }
+  
+  /* Specific override for video slideshow containers */
+  .slideshow-container.relative,
+  div.slideshow-container.relative {
+    width: 100% !important;
+    aspect-ratio: 16/9 !important;
+    height: auto !important;
+  }
+  
+  /* Better touch targets on mobile */
+  button, [role="button"], .clickable {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    touch-action: manipulation;
+  }
+  
+  /* Prevent zoom on input focus */
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+  
+  /* Ensure containers use full available width */
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+}

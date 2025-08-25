@@ -12,6 +12,7 @@ export default function ChiSiamo() {
       videoTitle="Video Presentazione Aziendale"
       videoUrl={videoChiSiamo}
       transparentSpacing={true}
+      pageId="chi-siamo"
     />
   );
 }
