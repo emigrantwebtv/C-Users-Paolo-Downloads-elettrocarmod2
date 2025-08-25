@@ -63,7 +63,7 @@ export default function Contatti() {
                 src="/attached_assets/logoemigrant_1755813935121.jpg"
                 alt="EmigrantWebTV Logo"
                 title="App realizzata da EmigrantWebTV"
-                className="cursor-pointer hover:opacity-80 transition-opacity duration-200"
+                className="cursor-pointer hover:opacity-80 transition-opacity duration-200 scale-50"
                 onClick={() => window.open('http://www.emigrantwebtv.com', '_blank')}
               />
             </div>
@@ -73,7 +73,7 @@ export default function Contatti() {
               <img
                 src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://h1.nu/elettrocar"
                 alt="QR Code per scaricare l'app Elettrocar"
-                className="w-50 h-50"
+                className="w-50 h-50 scale-50"
               />
               <p className="text-center text-gray-600 mt-3 text-sm font-medium">
                 Scansiona per scaricare l'app Elettrocar
