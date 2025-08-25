@@ -19,6 +19,7 @@ export default function Autolavaggio() {
       imageWidth="w-full"
       imageHeight="h-auto"
       secondImageHeight="h-auto"
+      pageId="autolavaggio"
     />
   );
 }

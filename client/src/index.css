@@ -123,11 +123,15 @@ img {
     margin-right: auto !important;
   }
   
-  /* OFFICINA, BAR: 100% screen width for photos and videos with 16:9 aspect ratio */
+  /* OFFICINA, BAR: 100% screen width for photos, videos and containers with 16:9 aspect ratio */
   body[data-page="officina"] img:not(.navigation-container *),
   body[data-page="officina"] video:not(.navigation-container *),
   body[data-page="bar"] img:not(.navigation-container *),
-  body[data-page="bar"] video:not(.navigation-container *) {
+  body[data-page="bar"] video:not(.navigation-container *),
+  body[data-page="officina"] .slideshow-container,
+  body[data-page="bar"] .slideshow-container,
+  body[data-page="officina"] div.slideshow-container,
+  body[data-page="bar"] div.slideshow-container {
     width: 100vw !important;
     max-width: 100vw !important;
     margin-left: calc(50% - 50vw) !important;
@@ -136,6 +140,12 @@ img {
     left: 50% !important;
     transform: translateX(-50%) !important;
     aspect-ratio: 16/9 !important;
+  }
+  
+  /* AUTOLAVAGGIO: reduce height of main photo to 80% */
+  body[data-page="autolavaggio"] img[src*="foto_autolavaggio"] {
+    height: 80% !important;
+    max-height: 80% !important;
   }
   
   /* CONTATTI: restore original dimensions for barcode and emigrantwebtv logo */
