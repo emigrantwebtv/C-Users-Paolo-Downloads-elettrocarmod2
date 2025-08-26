@@ -114,26 +114,28 @@ img {
 
 /* Mobile landscape: specific pages styling */
 @media (max-width: 768px) and (orientation: landscape) {
-  /* CHI SIAMO: make video container match photo container horizontal dimensions exactly */
+  /* CHI SIAMO: reduce video container dimensions by 20% */
   body[data-page="chi-siamo"] div:has(video):not(.navigation-container *) {
-    /* Video container matches photo container exactly */
+    /* Video container reduced by 20% */
     background-color: transparent !important;
-    padding-top: 1rem !important;
-    padding-bottom: 1rem !important;
+    padding-top: 0.8rem !important; /* 20% reduction from 1rem */
+    padding-bottom: 0.8rem !important; /* 20% reduction from 1rem */
     padding-left: 0 !important;
     padding-right: 0 !important;
-    /* Match photo container horizontal dimensions exactly */
-    width: 100% !important;
-    max-width: 100% !important;
+    /* Reduce horizontal dimensions by 20% */
+    width: 80% !important;
+    max-width: 80% !important;
     margin-left: auto !important;
     margin-right: auto !important;
+    /* Reduce vertical space */
+    transform: scaleY(0.8) !important;
   }
   
-  /* CHI SIAMO: make video element match photo element horizontal dimensions exactly */
+  /* CHI SIAMO: reduce video element dimensions by 20% */
   body[data-page="chi-siamo"] video:not(.navigation-container *) {
-    /* Video matches photo horizontal dimensions and settings exactly */
-    width: 100% !important;
-    max-width: 100% !important;
+    /* Video reduced by 20% horizontally and vertically */
+    width: 80% !important;
+    max-width: 80% !important;
     height: auto !important;
     object-fit: cover !important;
     object-position: center !important;
@@ -141,12 +143,12 @@ img {
     margin-right: auto !important;
     /* Remove slideshow-specific styling */
     position: static !important;
-    transform: none !important;
     left: auto !important;
     right: auto !important;
     top: auto !important;
     bottom: auto !important;
-    /* Ensure exact horizontal matching with photo */
+    /* Reduce both dimensions by 20% */
+    transform: scale(0.8) !important;
     box-sizing: border-box !important;
     display: block !important;
   }
