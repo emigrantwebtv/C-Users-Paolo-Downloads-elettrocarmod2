@@ -51,6 +51,7 @@ export default function ChiSiamo() {
               controls
               autoPlay
               playsInline
+              id="video-chi-siamo-original"
             >
               <source src={videoChiSiamo} type="video/mp4" />
               <p className="text-secondary p-4">Il tuo browser non supporta i video HTML5.</p>
@@ -66,6 +67,7 @@ export default function ChiSiamo() {
         controls
         playsInline
         data-testid="video-duplicate-landscape"
+        id="video-chi-siamo-landscape-clone"
       >
         <source src={videoChiSiamo} type="video/mp4" />
         <p className="text-secondary p-4">Il tuo browser non supporta i video HTML5.</p>
