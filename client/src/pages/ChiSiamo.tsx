@@ -44,20 +44,7 @@ export default function ChiSiamo() {
             </p>
           </div>
           
-          {/* Video section */}
-          <div className="bg-transparent py-3 sm:py-4">
-            <video
-              className="w-full h-[67vh] sm:h-[67vh] md:h-[77vh] object-cover rounded-t-xl slideshow-container"
-              controls
-              autoPlay
-              playsInline
-              id="video-chi-siamo-original"
-            >
-              <source src={videoChiSiamo} type="video/mp4" />
-              <p className="text-secondary p-4">Il tuo browser non supporta i video HTML5.</p>
-            </video>
-            <p className="text-center text-secondary mt-2 text-sm bg-gray-50 py-2">Video Presentazione Aziendale</p>
-          </div>
+
         </div>
       </main>
 
