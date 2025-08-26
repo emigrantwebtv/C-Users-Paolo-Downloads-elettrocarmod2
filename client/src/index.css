@@ -234,15 +234,16 @@ img {
     display: block !important;
   }
   
-  /* BAR: maintain complete portrait mode settings and dimensions */
+  /* BAR: reduce video size by 20% horizontally and vertically in landscape */
   body[data-page="bar"] video:not(.navigation-container *) {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: 67vh !important;
+    width: 80% !important;
+    max-width: 80% !important;
+    height: 53.6vh !important; /* 67vh * 0.8 = 53.6vh */
     object-fit: cover !important;
     object-position: center !important;
     margin-left: auto !important;
     margin-right: auto !important;
+    display: block !important;
   }
   
   /* OFFICINA, BAR: maintain portrait mode container dimensions and alignment */
