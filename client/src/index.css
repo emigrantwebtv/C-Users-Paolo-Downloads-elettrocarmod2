@@ -114,64 +114,15 @@ img {
 
 /* Mobile landscape: specific pages styling */
 @media (max-width: 768px) and (orientation: landscape) {
-  /* CHI SIAMO: force complete portrait mode display in landscape orientation */
-  body[data-page="chi-siamo"] {
-    /* Override all landscape behaviors to match portrait exactly */
-  }
-  
-  /* CHI SIAMO: force all elements to behave exactly like portrait mode */
-  body[data-page="chi-siamo"] *:not(.navigation-container):not(.navigation-container *) {
-    /* Reset any landscape modifications */
-    width: auto !important;
-    max-width: none !important;
-    height: auto !important;
-    aspect-ratio: unset !important;
-    margin: initial !important;
-    padding: initial !important;
-  }
-  
-  /* CHI SIAMO: images maintain exact portrait mode behavior */
-  body[data-page="chi-siamo"] img:not(.navigation-container *) {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: auto !important;
-    object-fit: cover !important;
-    object-position: center !important;
-  }
-  
-  /* CHI SIAMO: videos maintain exact portrait mode behavior */
-  body[data-page="chi-siamo"] video:not(.navigation-container *) {
-    width: 100% !important;
-    max-width: 100% !important;
-    height: 67vh !important;
-    object-fit: cover !important;
-    object-position: center !important;
-  }
-  
-  /* CHI SIAMO: containers maintain exact portrait mode behavior */
-  body[data-page="chi-siamo"] .container {
-    width: 100% !important;
-    max-width: 100% !important;
-    padding-left: 0.5rem !important;
-    padding-right: 0.5rem !important;
-  }
-  
-  /* CHI SIAMO: slideshow containers maintain exact portrait mode behavior */
-  body[data-page="chi-siamo"] .slideshow-container,
-  body[data-page="chi-siamo"] div.slideshow-container {
-    width: 100% !important;
-    max-width: 100% !important;
-    aspect-ratio: 16/9 !important;
-    height: auto !important;
-  }
-  
-  /* OFFICINA, BAR: maintain complete portrait mode layout, design and settings */
+  /* CHI SIAMO, OFFICINA, BAR: maintain complete portrait mode layout, design and settings */
+  body[data-page="chi-siamo"],
   body[data-page="officina"],
   body[data-page="bar"] {
     /* Force portrait mode container behavior */
   }
   
-  /* OFFICINA, BAR: all images maintain complete portrait mode settings */
+  /* CHI SIAMO, OFFICINA, BAR: all images maintain complete portrait mode settings */
+  body[data-page="chi-siamo"] img:not(.navigation-container *),
   body[data-page="officina"] img:not(.navigation-container *),
   body[data-page="bar"] img:not(.navigation-container *) {
     width: 100% !important;
@@ -183,7 +134,8 @@ img {
     margin-right: auto !important;
   }
   
-  /* OFFICINA, BAR: all videos maintain complete portrait mode settings and dimensions */
+  /* CHI SIAMO, OFFICINA, BAR: all videos maintain complete portrait mode settings and dimensions */
+  body[data-page="chi-siamo"] video:not(.navigation-container *),
   body[data-page="officina"] video:not(.navigation-container *),
   body[data-page="bar"] video:not(.navigation-container *) {
     width: 100% !important;
@@ -195,7 +147,8 @@ img {
     margin-right: auto !important;
   }
   
-  /* OFFICINA, BAR: maintain portrait mode container dimensions and alignment */
+  /* CHI SIAMO, OFFICINA, BAR: maintain portrait mode container dimensions and alignment */
+  body[data-page="chi-siamo"] .container,
   body[data-page="officina"] .container,
   body[data-page="bar"] .container {
     width: 100% !important;
@@ -204,7 +157,9 @@ img {
     padding-right: 0.5rem !important;
   }
   
-  /* OFFICINA, BAR: maintain portrait mode slideshow container behavior */
+  /* CHI SIAMO, OFFICINA, BAR: maintain portrait mode slideshow container behavior */
+  body[data-page="chi-siamo"] .slideshow-container,
+  body[data-page="chi-siamo"] div.slideshow-container,
   body[data-page="officina"] .slideshow-container,
   body[data-page="officina"] div.slideshow-container,
   body[data-page="bar"] .slideshow-container,
