@@ -114,7 +114,10 @@ img {
 
 /* Mobile landscape: specific pages styling */
 @media (max-width: 768px) and (orientation: landscape) {
-
+  /* CHI SIAMO: Hide only the original video element in landscape, keep description */
+  body[data-page="chi-siamo"] main video {
+    display: none !important;
+  }
   
   /* CHI SIAMO: Show duplicate video at bottom for landscape smartphones - no container */
   body[data-page="chi-siamo"] .landscape-video-duplicate {
