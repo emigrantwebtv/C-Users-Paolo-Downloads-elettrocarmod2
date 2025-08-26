@@ -223,6 +223,56 @@ img {
     margin-right: auto !important;
   }
   
+  /* CONTATTI: make video match photo container and element exactly */
+  body[data-page="contatti"] div:has(video):not(.navigation-container *) {
+    /* Video container matches photo container exactly */
+    background-color: transparent !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  
+  /* CONTATTI: make video element match photo element exactly */
+  body[data-page="contatti"] video:not(.navigation-container *) {
+    /* Video matches photo dimensions and settings exactly */
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    /* Remove slideshow-specific styling to match photo */
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    /* Remove slideshow container behavior */
+    aspect-ratio: unset !important;
+  }
+  
+  /* CONTATTI: images maintain photo settings */
+  body[data-page="contatti"] img:not(.navigation-container *) {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  /* CONTATTI: maintain photo-like container dimensions and alignment */
+  body[data-page="contatti"] .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
+  }
+  
   /* DOVE SIAMO: photos and videos align with navigation container width */
   body[data-page="dove-siamo"] img:not(.navigation-container *),
   body[data-page="dove-siamo"] video:not(.navigation-container *) {
