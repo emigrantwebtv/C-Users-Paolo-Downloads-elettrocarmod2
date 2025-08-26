@@ -107,7 +107,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/photos/upload", upload.single('photo'), async (req, res) => {
     try {
       const password = req.body.password;
-      if (password !== "segreta") {
+      const adminPassword = process.env.ADMIN_PASSWORD || "segreta";
+      if (password !== adminPassword) {
         return res.status(401).json({ error: "Password non corretta" });
       }
 
@@ -137,7 +138,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.delete("/api/photos/:id", async (req, res) => {
     try {
       const password = req.body.password;
-      if (password !== "segreta") {
+      const adminPassword = process.env.ADMIN_PASSWORD || "segreta";
+      if (password !== adminPassword) {
         return res.status(401).json({ error: "Password non corretta" });
       }
 
@@ -192,7 +194,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.post("/api/videos/upload", uploadVideo.single('video'), async (req, res) => {
     try {
       const password = req.body.password;
-      if (password !== "segreta") {
+      const adminPassword = process.env.ADMIN_PASSWORD || "segreta";
+      if (password !== adminPassword) {
         return res.status(401).json({ error: "Password non corretta" });
       }
 
@@ -222,7 +225,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
   app.delete("/api/videos/:id", async (req, res) => {
     try {
       const password = req.body.password;
-      if (password !== "segreta") {
+      const adminPassword = process.env.ADMIN_PASSWORD || "segreta";
+      if (password !== adminPassword) {
         return res.status(401).json({ error: "Password non corretta" });
       }
 
