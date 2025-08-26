@@ -114,21 +114,25 @@ img {
 
 /* Mobile landscape: specific pages styling */
 @media (max-width: 768px) and (orientation: landscape) {
-  /* CHI SIAMO: force video to display exactly like portrait mode */
+  /* CHI SIAMO: make video match photo container and element exactly */
+  body[data-page="chi-siamo"] div:has(video):not(.navigation-container *) {
+    /* Video container matches photo container exactly */
+    background-color: transparent !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+  
+  /* CHI SIAMO: make video element match photo element exactly */
   body[data-page="chi-siamo"] video:not(.navigation-container *) {
+    /* Video matches photo dimensions and settings exactly */
     width: 100% !important;
     max-width: 100% !important;
-    height: 67vh !important;
+    height: auto !important;
     object-fit: cover !important;
     object-position: center !important;
     margin-left: auto !important;
     margin-right: auto !important;
-    /* Force portrait mode video container behavior */
-  }
-  
-  /* CHI SIAMO: force video container to display exactly like portrait mode */
-  body[data-page="chi-siamo"] video:not(.navigation-container *) {
-    /* Override any landscape modifications - force exact portrait behavior */
+    /* Remove slideshow-specific styling */
     position: static !important;
     transform: none !important;
     left: auto !important;
