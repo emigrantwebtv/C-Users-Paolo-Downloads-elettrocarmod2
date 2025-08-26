@@ -114,12 +114,19 @@ img {
 
 /* Mobile landscape: specific pages styling */
 @media (max-width: 768px) and (orientation: landscape) {
-  /* CHI SIAMO: Show duplicate video at bottom for landscape smartphones */
+  /* CHI SIAMO: Show duplicate video at bottom for landscape smartphones - no container */
   body[data-page="chi-siamo"] .landscape-video-duplicate {
     display: block !important;
-    margin-top: 2rem;
-    padding: 0;
-    background: transparent;
+    margin: 2rem 0 0 0 !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    position: relative !important;
+    width: 100vw !important;
+    max-width: 100vw !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    box-sizing: border-box !important;
   }
   
   /* CHI SIAMO: video container maintains original dimensions */

@@ -60,17 +60,16 @@ export default function ChiSiamo() {
         </div>
       </main>
 
-      {/* Duplicate video for smartphone landscape - outside container */}
-      <div className="landscape-video-duplicate hidden">
-        <video
-          className="w-full h-auto object-cover"
-          controls
-          playsInline
-        >
-          <source src={videoChiSiamo} type="video/mp4" />
-          <p className="text-secondary p-4">Il tuo browser non supporta i video HTML5.</p>
-        </video>
-      </div>
+      {/* Duplicate video for smartphone landscape - no container, before navigation */}
+      <video
+        className="landscape-video-duplicate hidden w-full h-auto object-cover"
+        controls
+        playsInline
+        data-testid="video-duplicate-landscape"
+      >
+        <source src={videoChiSiamo} type="video/mp4" />
+        <p className="text-secondary p-4">Il tuo browser non supporta i video HTML5.</p>
+      </video>
 
       <FloatingNavigation />
     </div>
