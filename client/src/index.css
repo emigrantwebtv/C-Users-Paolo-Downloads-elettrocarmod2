@@ -114,12 +114,8 @@ img {
 
 /* Mobile landscape: specific pages styling */
 @media (max-width: 768px) and (orientation: landscape) {
-  /* CHI SIAMO: Hide original video container in landscape */
+  /* CHI SIAMO: Hide only the original video element in landscape, keep description */
   body[data-page="chi-siamo"] main video {
-    display: none !important;
-  }
-  
-  body[data-page="chi-siamo"] main div:has(video) {
     display: none !important;
   }
   
