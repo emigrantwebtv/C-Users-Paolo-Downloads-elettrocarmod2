@@ -114,7 +114,7 @@ img {
 
 /* Mobile landscape: specific pages styling */
 @media (max-width: 768px) and (orientation: landscape) {
-  /* CHI SIAMO: only photos align with navigation container width, videos behave like portrait */
+  /* CHI SIAMO: only photos align with navigation container width, videos maintain portrait behavior */
   body[data-page="chi-siamo"] img:not(.navigation-container *) {
     width: calc(100% - 2rem) !important;
     max-width: calc(100% - 2rem) !important;
@@ -122,11 +122,34 @@ img {
     margin-right: auto !important;
   }
   
-  /* OFFICINA, BAR: only photos align with navigation container width, videos behave like portrait */
+  /* CHI SIAMO: videos maintain complete portrait mode settings and dimensions */
+  body[data-page="chi-siamo"] video:not(.navigation-container *) {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 67vh !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  /* OFFICINA, BAR: only photos align with navigation container width, videos maintain portrait behavior */
   body[data-page="officina"] img:not(.navigation-container *),
   body[data-page="bar"] img:not(.navigation-container *) {
     width: calc(100% - 2rem) !important;
     max-width: calc(100% - 2rem) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  /* OFFICINA, BAR: videos maintain complete portrait mode settings and dimensions */
+  body[data-page="officina"] video:not(.navigation-container *),
+  body[data-page="bar"] video:not(.navigation-container *) {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 67vh !important;
+    object-fit: cover !important;
+    object-position: center !important;
     margin-left: auto !important;
     margin-right: auto !important;
   }
