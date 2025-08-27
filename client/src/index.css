@@ -20,6 +20,16 @@
   }
 }
 
+/* Reduce video size by 20% on OFFICINA and BAR pages when smartphone is in landscape orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+  body[data-page="officina"] video,
+  body[data-page="bar"] video {
+    width: 80% !important;
+    height: 80% !important;
+    margin: 0 auto;
+  }
+}
+
 :root {
   --background: hsl(0, 0%, 100%);
   --foreground: hsl(20, 14.3%, 4.1%);
