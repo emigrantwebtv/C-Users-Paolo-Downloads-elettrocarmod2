@@ -381,6 +381,14 @@ img {
   }
 }
 
+/* Mobile portrait: specific pages styling */
+@media (max-width: 640px) and (orientation: portrait) {
+  /* CHI SIAMO: Show portrait video clone under existing video */
+  body[data-page="chi-siamo"] .portrait-video-clone {
+    display: block !important;
+  }
+}
+
 /* Mobile-optimized media styles */
 @media (max-width: 640px) {
   /* Force horizontal aspect ratio for all slideshow containers on mobile - same as CHI SIAMO photos */
