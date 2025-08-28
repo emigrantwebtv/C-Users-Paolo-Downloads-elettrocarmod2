@@ -56,6 +56,26 @@
     padding-left: 0.5rem !important;
     padding-right: 0.5rem !important;
   }
+  
+  /* CHI SIAMO: make video match photo characteristics exactly in landscape orientation */
+  body[data-page="chi-siamo"] video:not(.navigation-container *) {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    transform: none !important;
+    position: static !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    aspect-ratio: unset !important;
+    box-sizing: border-box !important;
+    display: block !important;
+  }
 }
 
 :root {
