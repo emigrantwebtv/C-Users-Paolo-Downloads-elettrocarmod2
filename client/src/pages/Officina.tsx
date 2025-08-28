@@ -25,7 +25,7 @@ export default function Officina() {
         </div>
       </header>
 
-      {/* Content */}
+      {/* Content - Container interrupted for landscape */}
       <main className="container mx-auto px-4 pt-2">
         <div className="bg-transparent shadow-none rounded-xl overflow-hidden">
           {/* Image section */}
@@ -37,14 +37,15 @@ export default function Officina() {
             />
           </div>
           
-          <div className="p-3 sm:p-6">
+          {/* Description container - interrupted in landscape */}
+          <div className="description-container p-3 sm:p-6">
             <p className="text-blue-600 leading-relaxed mb-3 sm:mb-6 text-justify" style={{ hyphens: 'auto', wordBreak: 'normal', overflowWrap: 'break-word' }}>
               {description}
             </p>
           </div>
           
-          {/* Video section - inside container */}
-          <div className="bg-transparent py-3 sm:py-4">
+          {/* Video section - inside container for portrait */}
+          <div className="video-container-original bg-transparent py-3 sm:py-4">
             <video
               className="w-full h-[67vh] sm:h-[67vh] md:h-[77vh] object-cover rounded-t-xl slideshow-container"
               controls
@@ -59,13 +60,13 @@ export default function Officina() {
         </div>
       </main>
 
-      {/* Duplicate video for smartphone landscape - outside container, same as CHI SIAMO */}
+      {/* Video before navigation - 20% reduced, for landscape smartphones */}
       <video
-        className="landscape-video-duplicate hidden w-full h-auto object-cover"
+        className="landscape-video-before-nav hidden"
         controls
         playsInline
-        data-testid="video-duplicate-landscape"
-        id="video-officina-landscape-clone"
+        data-testid="video-before-navigation"
+        id="video-officina-before-nav"
       >
         <source src={videoOfficina} type="video/mp4" />
         <p className="text-secondary p-4">Il tuo browser non supporta i video HTML5.</p>
