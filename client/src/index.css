@@ -88,11 +88,11 @@
     display: none !important;
   }
   
-  /* OFFICINA: Show video before navigation, reduced by 20% in width and height */
+  /* OFFICINA: Show video before navigation, reduced by 20% in width and EBIKES height */
   body[data-page="officina"] .landscape-video-before-nav {
     display: block !important;
     width: 80% !important;
-    height: 80% !important;
+    height: 67vh !important;
     max-width: 80% !important;
     object-fit: cover !important;
     object-position: center !important;
@@ -115,11 +115,11 @@
     display: none !important;
   }
   
-  /* BAR: Show video before navigation, reduced by 20% in width only */
+  /* BAR: Show video before navigation, reduced by 20% in width and EBIKES height */
   body[data-page="bar"] .landscape-video-before-nav {
     display: block !important;
     width: 80% !important;
-    height: auto !important;
+    height: 67vh !important;
     max-width: 80% !important;
     object-fit: cover !important;
     object-position: center !important;
