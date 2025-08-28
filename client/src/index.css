@@ -88,7 +88,7 @@
     display: none !important;
   }
   
-  /* OFFICINA: Show video before navigation, reduced by 20% in width and 87vh height */
+  /* OFFICINA: Show video before navigation, reduced by 20% in width and 87vh height with rounded top corners */
   body[data-page="officina"] .landscape-video-before-nav {
     display: block !important;
     width: 80% !important;
@@ -102,6 +102,8 @@
     transform: none !important;
     position: static !important;
     box-sizing: border-box !important;
+    border-top-left-radius: 0.75rem !important;
+    border-top-right-radius: 0.75rem !important;
   }
   
   /* BAR: Interrupt description container in landscape */
@@ -115,7 +117,7 @@
     display: none !important;
   }
   
-  /* BAR: Show video before navigation, reduced by 20% in width and 87vh height */
+  /* BAR: Show video before navigation, reduced by 20% in width and 87vh height with rounded top corners */
   body[data-page="bar"] .landscape-video-before-nav {
     display: block !important;
     width: 80% !important;
@@ -129,6 +131,8 @@
     transform: none !important;
     position: static !important;
     box-sizing: border-box !important;
+    border-top-left-radius: 0.75rem !important;
+    border-top-right-radius: 0.75rem !important;
   }
 }
 
